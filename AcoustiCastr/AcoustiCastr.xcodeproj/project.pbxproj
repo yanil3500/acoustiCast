@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD076CF01E9BF21000686520 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD076CEF1E9BF21000686520 /* JSONParser.swift */; };
+		CD076CF21E9BF21F00686520 /* Podcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD076CF11E9BF21F00686520 /* Podcast.swift */; };
+		CD076CF41E9BF22F00686520 /* Episodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD076CF31E9BF22F00686520 /* Episodes.swift */; };
+		CD076CF71E9BF2E200686520 /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD076CF61E9BF2E200686520 /* UIKitExtensions.swift */; };
+		CD076CF91E9BF4D400686520 /* iTunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD076CF81E9BF4D400686520 /* iTunes.swift */; };
 		CDD2A3FF1E9BEF3D00D1A3EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD2A3FE1E9BEF3D00D1A3EA /* AppDelegate.swift */; };
 		CDD2A4011E9BEF3D00D1A3EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD2A4001E9BEF3D00D1A3EA /* ViewController.swift */; };
 		CDD2A4041E9BEF3D00D1A3EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDD2A4021E9BEF3D00D1A3EA /* Main.storyboard */; };
@@ -15,6 +20,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD076CEF1E9BF21000686520 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		CD076CF11E9BF21F00686520 /* Podcast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Podcast.swift; sourceTree = "<group>"; };
+		CD076CF31E9BF22F00686520 /* Episodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Episodes.swift; sourceTree = "<group>"; };
+		CD076CF61E9BF2E200686520 /* UIKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
+		CD076CF81E9BF4D400686520 /* iTunes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iTunes.swift; sourceTree = "<group>"; };
 		CDD2A3FB1E9BEF3C00D1A3EA /* AcoustiCastr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AcoustiCastr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDD2A3FE1E9BEF3D00D1A3EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDD2A4001E9BEF3D00D1A3EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CD076CF51E9BF2C300686520 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CD076CF61E9BF2E200686520 /* UIKitExtensions.swift */,
+			);
+			name = extensions;
+			sourceTree = "<group>";
+		};
 		CDD2A3F21E9BEF3C00D1A3EA = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +72,7 @@
 		CDD2A3FD1E9BEF3D00D1A3EA /* AcoustiCastr */ = {
 			isa = PBXGroup;
 			children = (
+				CD076CF51E9BF2C300686520 /* extensions */,
 				CDD2A4121E9BEFAA00D1A3EA /* controllers */,
 				CDD2A4111E9BEF9E00D1A3EA /* model */,
 				CDD2A3FE1E9BEF3D00D1A3EA /* AppDelegate.swift */,
@@ -76,6 +95,10 @@
 		CDD2A4111E9BEF9E00D1A3EA /* model */ = {
 			isa = PBXGroup;
 			children = (
+				CD076CEF1E9BF21000686520 /* JSONParser.swift */,
+				CD076CF11E9BF21F00686520 /* Podcast.swift */,
+				CD076CF31E9BF22F00686520 /* Episodes.swift */,
+				CD076CF81E9BF4D400686520 /* iTunes.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -162,7 +185,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDD2A4011E9BEF3D00D1A3EA /* ViewController.swift in Sources */,
+				CD076CF91E9BF4D400686520 /* iTunes.swift in Sources */,
+				CD076CF41E9BF22F00686520 /* Episodes.swift in Sources */,
+				CD076CF71E9BF2E200686520 /* UIKitExtensions.swift in Sources */,
 				CDD2A3FF1E9BEF3D00D1A3EA /* AppDelegate.swift in Sources */,
+				CD076CF21E9BF21F00686520 /* Podcast.swift in Sources */,
+				CD076CF01E9BF21000686520 /* JSONParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +356,7 @@
 				CDD2A40F1E9BEF3D00D1A3EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
