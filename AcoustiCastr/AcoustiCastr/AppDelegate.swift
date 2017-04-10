@@ -15,10 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        print("Inside of appDelegate:")
-        iTunes.shared.getPodcasts { (podcasts) in
-            print("Inside of appDelegate: number of podcasts is \(podcasts?.first?.podcastFeed)")
-        }
+        
+        
         var parser = RSS()
         parser.beginParsing()
         return true
