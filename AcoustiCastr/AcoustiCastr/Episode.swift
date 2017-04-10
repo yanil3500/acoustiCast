@@ -9,6 +9,14 @@
 import UIKit
 
 class Episode {
+    var title: String?
+    var description: String?
+    var podcastAudio: String?
+    var duration: String?
+    var pubDate: String?
     
+//    init(<#parameters#>) {
+//        <#statements#>
+//    }
 }
 
