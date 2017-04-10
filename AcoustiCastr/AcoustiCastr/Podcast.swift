@@ -9,21 +9,21 @@
 import UIKit
 
 class Podcast {
-    let artistName : String
-    let collectionName : String
-    let genre : String
-    let podcastFeed : URL
-    let podcastArt : URL
+    var artistName : String
+    var collectionName : String
+    var genre : String
+    var podcastFeed : String
+    var podcastArt : String
     
-    init?(json: [String: Any] ) {
-        if let artistName = json["artistName"] as? String, let collectionName = json["collectioName"] as? String, let genre = json["primaryGenreName"] as? String, let podcastFeed = json["feedUrl"] as? URL, let podcastArt = json["artworkUrl600"] as? URL {
-            self.artistName = artistName
-            self.collectionName = collectionName
-            self.genre = genre
-            self.podcastFeed = podcastFeed
-            self.podcastArt = podcastArt
+    init(json: [String: Any] ) {
+            self.artistName = json["artistName"] as! String
+        if let collection = json["collectionName"] as? String {
+            self.collectionName = collection
         } else {
-            return nil
+            self.collectionName = ""
         }
+            self.genre = json["primaryGenreName"] as! String
+            self.podcastFeed = json["feedUrl"] as! String
+            self.podcastArt = json["artworkUrl600"] as! String
     }
 }

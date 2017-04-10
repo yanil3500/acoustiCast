@@ -15,7 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        print("Inside of appDelegate:")
+        iTunes.shared.getPodcasts { (podcasts) in
+            print("Inside of appDelegate: number of podcasts is \(podcasts?.count)")
+        }
         return true
     }
 
