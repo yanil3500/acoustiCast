@@ -17,7 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         print("Inside of appDelegate:")
         iTunes.shared.getPodcasts { (podcasts) in
-            print("Inside of completion handler")
+            if let allPodcasts = podcasts {
+                print("Inside of getPodcasts completion: \(allPodcasts.first?.collectionName)")
+            }
         }
         return true
     }

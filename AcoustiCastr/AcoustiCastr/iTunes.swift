@@ -60,14 +60,15 @@ class iTunes {
                 do {
                     print("Inside of do: ")
                     if let rootJSON = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String : Any] {
-                        var podcastJSON = rootJSON["results"]
+                        let podcastJSON = rootJSON["results"]
                         if let allPodcasts = podcastJSON as? [[String : Any]] {
                             for podcast in allPodcasts {
-                                print("podcast: \(podcast)")
-//                                podcasts.append(Podcast(json: podcast))
+                                let podcastInst = Podcast(json: podcast)
+                                podcasts.append(podcastInst)
                             }
                         }
                     }
+                    returnToMain(results: podcasts)
                 } catch {
                     print("Some error")
                 }
