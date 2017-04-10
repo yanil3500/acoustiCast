@@ -8,7 +8,7 @@
 
 import UIKit
 
-typealias GetPodcastsCompletion = ([Podcast]?) -> ()
+typealias GetPodcastsCompletion = ([Podcast]?) -> Void
 
 
 
@@ -19,21 +19,21 @@ class iTunes {
     
     static let shared = iTunes()
     
-    let searchParameterOne = "marcmaron"
-    let searchParameterTwo = "comedy"
+    var searchParameterTwo = "comedy"
     
     private init (){
         self.session = URLSession(configuration: .default)
         self.components = URLComponents()
         self.components.scheme = "https"
-        self.components.host = "https://itunes.apple.com/search?entity=podcast"
+        self.components.host = "itunes.apple.com"
     }
     
     func getPodcasts(completion: @escaping GetPodcastsCompletion ) {
         
-        let queryItem = URLQueryItem(name: "term", value: searchParameterOne)
         let queryItemByCreate = URLQueryItem(name: "term", value: searchParameterTwo)
-        self.components.queryItems = [queryItem, queryItemByCreate]
+        let queryItemEntity = URLQueryItem(name: "entity", value: "podcast")
+        self.components.queryItems = [queryItemByCreate, queryItemEntity]
+        self.components.path = "/search"
         
         func returnToMain(results: [Podcast]?){
             OperationQueue.main.addOperation {
@@ -43,6 +43,7 @@ class iTunes {
         
         guard let url = self.components.url else { returnToMain(results: nil); return }
         
+        print("Inside of getPodcasts (the url): \(url)")
         self.session.dataTask(with: url) { (data, response, error) in
             if error != nil {
                 print("getPodcasts error: \(String(describing: error))")
@@ -51,21 +52,27 @@ class iTunes {
             }
             
             if let data = data {
+                
+                print("data: \(data)")
                 var podcasts = [Podcast]()
                 
-                guard let rootJSON = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String: Any]] else { completion(nil); return }
                 
-                if let json = rootJSON {
-                    for podcastJSON in json {
-                        if let podcast = Podcast(json: podcastJSON){
-                            podcasts.append(podcast)
+                do {
+                    print("Inside of do: ")
+                    if let rootJSON = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String : Any] {
+                        var podcastJSON = rootJSON["results"]
+                        if let allPodcasts = podcastJSON as? [[String : Any]] {
+                            for podcast in allPodcasts {
+                                print("podcast: \(podcast)")
+//                                podcasts.append(Podcast(json: podcast))
+                            }
                         }
                     }
+                } catch {
+                    print("Some error")
                 }
-                
-                returnToMain(results: podcasts)
             }
-        }
+        }.resume()
         
     }
     
