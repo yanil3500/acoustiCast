@@ -12,9 +12,11 @@ class RSS: XMLParser {
     var parser = XMLParser()
     var element : String = ""
     var textNode : String = ""
-    var author : String = ""
     var podDescription : String = ""
     var pubDate : String = ""
+    var duration : String = ""
+    var audioLink : String = ""
+    var title : String = ""
 
 
 
@@ -36,16 +38,13 @@ extension RSS: XMLParserDelegate {
         self.element = elementName
         if self.element == "enclosure" {
             if let link = attributeDict["url"] {
-                
+                self.audioLink = link
             }
         }
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        if self.element == "itunes:author" {
-            print("self.textNode: \(self.textNode)")
-            self.author = self.textNode
-        }
+        
         if self.element == "item" {
             if self.element == "description" {
                 self.podDescription = self.textNode
@@ -53,31 +52,29 @@ extension RSS: XMLParserDelegate {
             
         }
         if self.element == "pubDate" {
-            self.pubDate = self.textNode
+            self.pubDate = self.textNode.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
+        if self.element == "itunes:duration" {
+            self.duration = self.textNode.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        }
+        if self.element == "title" {
+            self.title = self.textNode.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        }
+        
         self.textNode = ""
     }
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
-//        if self.element == "title" {
-//            self.textNode += string
-//        }
-//        if self.element == "description" {
-//            self.textNode += string
-//        }
-//        if self.element == "pubDate" {
-//            self.textNode += string
-//        }
-//        if self.element == "author" {
-//            self.textNode += string
-//        }
+
         self.textNode += string
     }
     
     func parserDidEndDocument(_ parser: XMLParser) {
-        print("author: \(self.author)")
         print("podDescription: \(self.podDescription)")
         print("pubDate: \(self.pubDate)")
+        print("podcastLink: \(self.audioLink)")
+        print("duration: \(self.duration)")
+        print("title: \(self.title)")
         
         
     }

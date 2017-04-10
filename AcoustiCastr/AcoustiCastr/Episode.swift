@@ -13,6 +13,7 @@ class Episode {
     var description: String?
     var podcastAudio: String?
     var duration: String?
+    var pubDate: String?
     
 //    init(<#parameters#>) {
 //        <#statements#>
