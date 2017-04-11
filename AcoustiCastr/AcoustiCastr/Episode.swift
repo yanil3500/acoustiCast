@@ -16,8 +16,6 @@ class Episode {
     var pubDate: String = ""
     
     init (episode: [String : String]) {
-        print("Inside of Episode init: \(episode.count)")
-        print("Dictionary: \(String(describing: episode["audiolink"]))")
         self.title = episode["title"]!
         self.summary = episode["summary"]!
         if let link = episode["audiolink"] {

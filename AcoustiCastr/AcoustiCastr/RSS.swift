@@ -15,38 +15,45 @@ class RSS: XMLParser {
     private var parser = XMLParser()
     internal var element : String = ""
     internal var textNode : String = ""
-    internal var episodeDictionary : [String : String] = [:]
+    internal var episodeDictionary = [String : String]()
     internal var episodes = [Episode]()
-    var rssFeed : String = ""
+    var rssFeed = "https://rss.earwolf.com/comedy-bang-bang"
     
     static let shared = RSS()
     
     private func beginParsing() {
-        guard let url = URL(string: rssFeed) else { return; }
+        guard let url = URL(string: "https://feeds.feedburner.com/comedycentral/standup") else {
+            print("This does not work.")
+            return; }
         self.episodeDictionary = [String : String]()
-        guard let parser = XMLParser(contentsOf: url) else { return;}
+        guard let parser = XMLParser(contentsOf: url) else {
+            print("Inside of parser:")
+            return;}
+        self.episodes = [Episode]()
         self.parser = parser
+        self.parser.delegate = self
         self.parser.parse()
     }
     
+    func getEpisodes(){
+        self.beginParsing()
+    }
+    
     func getEpisodes(completion: @escaping RSSCompletionHandler){
+        print("Inside of getEpisodes: array count \(self.episodes.count)")
         func returnToMain(results: [Episode]?){
             OperationQueue.main.addOperation {
                 completion(results)
             }
         }
+        returnToMain(results: self.episodes)
     }
+    
 }
 //MARK: RSS conforms to XMLParserDelegate
 extension RSS: XMLParserDelegate {
- 
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         self.element = elementName
-        
-        if elementName == "item" {
-            
-        }
-        
         if elementName == "enclosure" {
             guard let url = attributeDict["url"] else { print("Failed to unwrap url."); return }
             self.episodeDictionary["audiolink"] = url
@@ -54,7 +61,6 @@ extension RSS: XMLParserDelegate {
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        
         if elementName == "item" {
         let episode = Episode(episode: self.episodeDictionary)
             self.episodes.append(episode)
@@ -95,6 +101,7 @@ extension RSS: XMLParserDelegate {
 
 
     }
+    
     func parser(_ parser: XMLParser, foundCDATA CDATABlock: Data) {
         print("Inside of foundCDATA")
         if let data = String(data: CDATABlock, encoding: .utf8)?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines){
@@ -104,9 +111,8 @@ extension RSS: XMLParserDelegate {
         }
     }
     
-    
-    func parserDidEndDocument(_ parser: XMLParser) {
-        
+    func parserDidEndDocument(_ parser: XMLParser){
+        print("parserDidEnd: ")
     }
     
 

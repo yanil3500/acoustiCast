@@ -15,6 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        RSS.shared.getEpisodes()
+        RSS.shared.getEpisodes { (episodes) in
+        }
         return true
     }
 
