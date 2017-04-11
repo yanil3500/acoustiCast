@@ -15,19 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        
-        let parser = RSS()
-        iTunes.shared.getPodcasts { (podcasts) in
-            if let allPodcasts = podcasts {
-                if let podcastOne = allPodcasts.first {
-                    OperationQueue.main.addOperation {
-                        parser.beginParsing(url: podcastOne.podcastFeed)
-                    }
-                }
-            }
-        }
-        
         return true
     }
 

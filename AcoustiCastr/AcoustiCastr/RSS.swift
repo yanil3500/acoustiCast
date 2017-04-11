@@ -12,7 +12,8 @@ class RSS: XMLParser {
     var parser = XMLParser()
     var element : String = ""
     var textNode : String = ""
-    var episodeDictionary = [String : String]()
+    var audiolink : String = ""
+    var episodeDictionary : [String : String] = [:]
     var episodes = [Episode]()
 
     func beginParsing(url: String) {
@@ -23,6 +24,7 @@ class RSS: XMLParser {
         guard let parserInst = XMLParser(contentsOf: url) else {
             return
         }
+        self.episodeDictionary = [String : String]()
         self.parser = parserInst
         self.parser.delegate = self
         self.parser.parse()
@@ -38,30 +40,30 @@ extension RSS: XMLParserDelegate {
         }
         
         if elementName == "enclosure" {
-            guard let url = attributeDict["url"] else { print("This is fucked!");return }
-            
+            guard let url = attributeDict["url"] else { print("Failed to unwrap url."); return }
+            self.episodeDictionary["audiolink"] = url
         }
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         
         if elementName == "item" {
-            print("\(self.textNode)")
+        let episode = Episode(episode: self.episodeDictionary)
         }
         
         if elementName == "title" {
-            print("Inside of element: \(self.textNode)")
+            self.episodeDictionary["title"] = self.textNode
         }
         
         if elementName == "itunes:summary" {
-            print("summary: \(self.textNode)")
+            self.episodeDictionary["summary"] = self.textNode
         }
         
         if elementName == "itunes:duration" {
-            print("duration: \(self.textNode)")
+            self.episodeDictionary["duration"] = self.textNode
         }
         if elementName == "pubDate" {
-            print("pubDate: \(self.textNode)")
+            self.episodeDictionary["pubDate"] = self.textNode
         }
         
         
