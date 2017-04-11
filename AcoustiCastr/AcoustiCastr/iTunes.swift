@@ -19,7 +19,7 @@ class iTunes {
     
     static let shared = iTunes()
     
-    var searchParameterTwo = "comedy"
+    var searchParameterTwo = "sports"
     
     private init (){
         self.session = URLSession(configuration: .default)
@@ -43,7 +43,7 @@ class iTunes {
         
         guard let url = self.components.url else { returnToMain(results: nil); return }
         
-        print("Inside of getPodcasts (the url): \(url)")
+                
         self.session.dataTask(with: url) { (data, response, error) in
             if error != nil {
                 print("getPodcasts error: \(String(describing: error))")
@@ -53,17 +53,23 @@ class iTunes {
             
             if let data = data {
                 
-                print("data: \(data)")
                 var podcasts = [Podcast]()
                 
                 
                 do {
+                    var url = ""
                     if let rootJSON = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String : Any] {
                         let podcastJSON = rootJSON["results"]
                         if let allPodcasts = podcastJSON as? [[String : Any]] {
                             for podcast in allPodcasts {
-                                let podcastInst = Podcast(json: podcast)
-                                podcasts.append(podcastInst)
+                                url = (podcast["feedUrl"] as! String)
+                                if url.components(separatedBy: ":").first == "https" {
+                                    print("Podcasts WITH https: \(podcast["feedUrl"])")
+                                    let podcastInst = Podcast(json: podcast)
+                                    podcasts.append(podcastInst)
+                                } else {
+                                print("Podcasts WITHOUT https: \(podcast["feedUrl"])")
+                                }
                             }
                         }
                     }

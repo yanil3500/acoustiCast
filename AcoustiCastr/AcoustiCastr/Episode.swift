@@ -17,7 +17,9 @@ class Episode {
     
     init (episode: [String : String]) {
         self.title = episode["title"]!
-        self.summary = episode["summary"]!
+        if let summaryOfPod = episode["summary"]{
+            self.summary = summaryOfPod
+        }
         if let link = episode["audiolink"] {
             self.audiolink = link
         }

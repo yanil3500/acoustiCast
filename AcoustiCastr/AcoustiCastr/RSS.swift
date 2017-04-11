@@ -22,7 +22,6 @@ class RSS: XMLParser {
     static let shared = RSS()
     
     private func beginParsing() {
-        print("Inside of beginParsing: \(self.rssFeed)")
         guard let url = URL(string: rssFeed) else {
             print("This does not work.")
             return; }
@@ -101,7 +100,6 @@ extension RSS: XMLParserDelegate {
     }
     
     func parser(_ parser: XMLParser, foundCDATA CDATABlock: Data) {
-        print("Inside of foundCDATA")
         if let data = String(data: CDATABlock, encoding: .utf8)?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines){
             if self.element == "itunes:subtitle"{
                 self.textNode += data
@@ -110,7 +108,6 @@ extension RSS: XMLParserDelegate {
     }
     
     func parserDidEndDocument(_ parser: XMLParser){
-        print("parserDidEnd: ")
     }
     
 
