@@ -64,7 +64,6 @@ class iTunes {
                         if let allPodcasts = podcastJSON as? [[String : Any]] {
                             for podcast in allPodcasts {
                                 let podcastInst = Podcast(json: podcast)
-                                print("Inside Of Get Podcasts: \(podcastInst.podcastFeed)")
                                 podcasts.append(podcastInst)
                             }
                         }

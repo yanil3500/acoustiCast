@@ -46,12 +46,11 @@ extension RSS: XMLParserDelegate {
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         
-        if self.element == "item" {
-            if self.element == "description" {
-                self.podDescription = self.textNode
-            }
-            
-        }
+//        if self.element == "item" {
+//            if self.element == "description" {
+//                self.podDescription = self.textNode
+//            }
+//        }
         if self.element == "pubDate" {
             self.pubDate = self.textNode.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
@@ -60,25 +59,31 @@ extension RSS: XMLParserDelegate {
         }
         if self.element == "title" {
             self.title = self.textNode.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+            print("Title: \(self.title)")
         }
-        
-        let episode = Episode(title: self.title, description: self.podDescription, podcastAudio: self.audioLink, duration: self.duration, pubDate: self.pubDate)
-        self.episodes.append(episode)
+        if self.element == "description" {
+            self.parser(parser, foundCDATA: self.textNode)
+        }
+//        let episode = Episode(title: self.title, description: self.podDescription, podcastAudio: self.audioLink, duration: self.duration, pubDate: self.pubDate)
+//        print("episode \(episode)")
+//        self.episodes.append(episode)
         
         self.textNode = ""
     }
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
-
+        if self.element == "description" {
+            
+        }
         self.textNode += string
     }
     
     func parserDidEndDocument(_ parser: XMLParser) {
-        print("podDescription: \(self.podDescription)")
         print("pubDate: \(self.pubDate)")
         print("podcastLink: \(self.audioLink)")
         print("duration: \(self.duration)")
         print("title: \(self.title)")
+
         
         
     }
@@ -86,6 +91,7 @@ extension RSS: XMLParserDelegate {
     func parser(_ parser: XMLParser, foundCDATA CDATABlock: Data) {
         if let podDescription = String(data: CDATABlock, encoding: .utf8) {
             self.podDescription = podDescription
+            print("Self: \(self.podDescription)")
         }
     }
 }

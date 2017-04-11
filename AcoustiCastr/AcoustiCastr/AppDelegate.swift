@@ -18,18 +18,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         var parser = RSS()
-        var setRSSFeed = ""
         iTunes.shared.getPodcasts { (podcasts) in
             if let allPodcasts = podcasts {
-                if let podcastFeed = allPodcasts.first?.podcastFeed {
+                if let podcastOne = allPodcasts.first {
                     OperationQueue.main.addOperation {
-                        setRSSFeed = podcastFeed
+                        parser.beginParsing(url: podcastOne.podcastFeed)
                     }
                 }
             }
         }
-        print("RSS Feed Link: \(setRSSFeed)")
-        parser.beginParsing(url: setRSSFeed)
+//        parser.beginParsing(url: setRSSFeed)
         
         return true
     }
