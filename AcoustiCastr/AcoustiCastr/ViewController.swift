@@ -14,12 +14,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let parser = RSS()
         iTunes.shared.getPodcasts { (podcasts) in
             if let allPodcasts = podcasts {
                 if let podcastOne = allPodcasts.first {
                     OperationQueue.main.addOperation {
-                        parser.beginParsing(url: "https://wtfpod.libsyn.com/rss")
+                        
                     }
                 }
             }
