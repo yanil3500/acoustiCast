@@ -15,8 +15,12 @@ class Episode {
     var duration: String?
     var pubDate: String?
     
-//    init(<#parameters#>) {
-//        <#statements#>
-//    }
+    init(title: String, description: String, podcastAudio: String, duration: String, pubDate: String) {
+        self.title = title
+        self.description = description
+        self.podcastAudio = podcastAudio
+        self.duration = duration
+        self.pubDate = pubDate
+    }
 }
 

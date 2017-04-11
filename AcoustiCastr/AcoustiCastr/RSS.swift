@@ -18,10 +18,10 @@ class RSS: XMLParser {
     var audioLink : String = ""
     var title : String = ""
 
+    var episodes = [Episode]()
 
-
-    func beginParsing() {
-        guard let url = URL(string: "https://wtfpod.libsyn.com/rss") else {
+    func beginParsing(url: String) {
+        guard let url = URL(string: url) else {
             return
         }
         guard let parserInst = XMLParser(contentsOf: url) else {
@@ -60,6 +60,9 @@ extension RSS: XMLParserDelegate {
         if self.element == "title" {
             self.title = self.textNode.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
+        
+        let episode = Episode(title: self.title, description: self.podDescription, podcastAudio: self.audioLink, duration: self.duration, pubDate: self.pubDate)
+        self.episodes.append(episode)
         
         self.textNode = ""
     }
