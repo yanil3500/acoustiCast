@@ -17,12 +17,13 @@ class RSS: XMLParser {
     internal var textNode : String = ""
     internal var episodeDictionary = [String : String]()
     internal var episodes = [Episode]()
-    var rssFeed = "https://rss.earwolf.com/comedy-bang-bang"
+    var rssFeed = ""
     
     static let shared = RSS()
     
     private func beginParsing() {
-        guard let url = URL(string: "https://feeds.feedburner.com/comedycentral/standup") else {
+        print("Inside of beginParsing: \(self.rssFeed)")
+        guard let url = URL(string: rssFeed) else {
             print("This does not work.")
             return; }
         self.episodeDictionary = [String : String]()
@@ -35,12 +36,9 @@ class RSS: XMLParser {
         self.parser.parse()
     }
     
-    func getEpisodes(){
-        self.beginParsing()
-    }
     
     func getEpisodes(completion: @escaping RSSCompletionHandler){
-        print("Inside of getEpisodes: array count \(self.episodes.count)")
+        self.beginParsing()
         func returnToMain(results: [Episode]?){
             OperationQueue.main.addOperation {
                 completion(results)
