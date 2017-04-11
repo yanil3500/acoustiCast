@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A1B79A331E9C355500F4B462 /* RSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B79A321E9C355500F4B462 /* RSS.swift */; };
-		CD076CF01E9BF21000686520 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD076CEF1E9BF21000686520 /* JSONParser.swift */; };
 		CD076CF21E9BF21F00686520 /* Podcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD076CF11E9BF21F00686520 /* Podcast.swift */; };
 		CD076CF41E9BF22F00686520 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD076CF31E9BF22F00686520 /* Episode.swift */; };
 		CD076CF71E9BF2E200686520 /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD076CF61E9BF2E200686520 /* UIKitExtensions.swift */; };
@@ -22,7 +21,6 @@
 
 /* Begin PBXFileReference section */
 		A1B79A321E9C355500F4B462 /* RSS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSS.swift; sourceTree = "<group>"; };
-		CD076CEF1E9BF21000686520 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		CD076CF11E9BF21F00686520 /* Podcast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Podcast.swift; sourceTree = "<group>"; };
 		CD076CF31E9BF22F00686520 /* Episode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		CD076CF61E9BF2E200686520 /* UIKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
@@ -98,7 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				A1B79A321E9C355500F4B462 /* RSS.swift */,
-				CD076CEF1E9BF21000686520 /* JSONParser.swift */,
 				CD076CF11E9BF21F00686520 /* Podcast.swift */,
 				CD076CF31E9BF22F00686520 /* Episode.swift */,
 				CD076CF81E9BF4D400686520 /* iTunes.swift */,
@@ -194,7 +191,6 @@
 				A1B79A331E9C355500F4B462 /* RSS.swift in Sources */,
 				CDD2A3FF1E9BEF3D00D1A3EA /* AppDelegate.swift in Sources */,
 				CD076CF21E9BF21F00686520 /* Podcast.swift in Sources */,
-				CD076CF01E9BF21000686520 /* JSONParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
