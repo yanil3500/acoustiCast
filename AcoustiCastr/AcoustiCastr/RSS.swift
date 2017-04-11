@@ -21,6 +21,7 @@ class RSS: XMLParser {
     var episodes = [Episode]()
 
     func beginParsing(url: String) {
+        print("begin parsing: \(url)")
         guard let url = URL(string: url) else {
             return
         }
