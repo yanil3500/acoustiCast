@@ -9,23 +9,22 @@
 import UIKit
 
 class Episode {
-    var title: String
-    var description: String
-    var podcastAudio: String
-    var duration: String
-    var pubDate: String
+    var title: String = ""
+    var summary: String = ""
+    var audiolink: String = ""
+    var duration: String = ""
+    var pubDate: String = ""
     
-    init(title: String, description: String, podcastAudio: String, duration: String, pubDate: String) {
-        self.title = title
-        print("title: \(self.title)")
-        self.description = description
-        print("description: \(self.description)")
-        self.podcastAudio = podcastAudio
-        print("podcast: \(self.podcastAudio)")
-        self.duration = duration
-        print("Duration: \(self.duration)")
-        self.pubDate = pubDate
-        print("pubDate: \(self.pubDate)")
+    init (episode: [String : String]) {
+        print("Inside of Episode init: \(episode.count)")
+        print("Dictionary: \(String(describing: episode["audiolink"]))")
+        self.title = episode["title"]!
+        self.summary = episode["summary"]!
+        if let link = episode["audiolink"] {
+            self.audiolink = link
+        }
+        self.pubDate = episode["pubDate"]!
+        self.duration = episode["duration"]!
     }
 }
 

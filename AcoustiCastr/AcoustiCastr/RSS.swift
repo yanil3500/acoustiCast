@@ -12,12 +12,8 @@ class RSS: XMLParser {
     var parser = XMLParser()
     var element : String = ""
     var textNode : String = ""
-    var podDescription : String = ""
-    var pubDate : String = ""
-    var duration : String = ""
-    var audioLink : String = ""
-    var title : String = ""
-
+    var audiolink : String = ""
+    var episodeDictionary : [String : String] = [:]
     var episodes = [Episode]()
 
     func beginParsing(url: String) {
@@ -28,6 +24,7 @@ class RSS: XMLParser {
         guard let parserInst = XMLParser(contentsOf: url) else {
             return
         }
+        self.episodeDictionary = [String : String]()
         self.parser = parserInst
         self.parser.delegate = self
         self.parser.parse()
@@ -37,63 +34,64 @@ class RSS: XMLParser {
 extension RSS: XMLParserDelegate {
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         self.element = elementName
-        if self.element == "enclosure" {
-            if let link = attributeDict["url"] {
-                self.audioLink = link
-            }
+        
+        if elementName == "item" {
+            
+        }
+        
+        if elementName == "enclosure" {
+            guard let url = attributeDict["url"] else { print("Failed to unwrap url."); return }
+            self.episodeDictionary["audiolink"] = url
         }
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         
-//        if self.element == "item" {
-//            if self.element == "description" {
-//                self.podDescription = self.textNode
-//            }
-//        }
-        if self.element == "pubDate" {
-            self.pubDate = self.textNode.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        if elementName == "item" {
+        let episode = Episode(episode: self.episodeDictionary)
         }
-        if self.element == "itunes:duration" {
-            self.duration = self.textNode.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        
+        if elementName == "title" {
+            self.episodeDictionary["title"] = self.textNode
         }
-        if self.element == "title" {
-            self.title = self.textNode.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-            print("Title: \(self.title)")
+        
+        if elementName == "itunes:summary" {
+            self.episodeDictionary["summary"] = self.textNode
         }
-        if self.element == "description" {
-            self.parser(parser, foundCDATA: self.textNode)
+        
+        if elementName == "itunes:duration" {
+            self.episodeDictionary["duration"] = self.textNode
         }
-//        let episode = Episode(title: self.title, description: self.podDescription, podcastAudio: self.audioLink, duration: self.duration, pubDate: self.pubDate)
-//        print("episode \(episode)")
-//        self.episodes.append(episode)
+        if elementName == "pubDate" {
+            self.episodeDictionary["pubDate"] = self.textNode
+        }
+        
+        
         
         self.textNode = ""
+        
     }
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
-        if self.element == "description" {
-            
+        let data = string.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        if self.element == "title" {
+            self.textNode += data
+        } else if self.element == "itunes:summary" {
+            self.textNode += data
+        } else if self.element == "itunes:duration" {
+            self.textNode += data
+        } else if self.element == "pubDate" {
+            self.textNode += data
         }
-        self.textNode += string
+
+
     }
     
     func parserDidEndDocument(_ parser: XMLParser) {
-        print("pubDate: \(self.pubDate)")
-        print("podcastLink: \(self.audioLink)")
-        print("duration: \(self.duration)")
-        print("title: \(self.title)")
 
-        
-        
     }
     
-    func parser(_ parser: XMLParser, foundCDATA CDATABlock: Data) {
-        if let podDescription = String(data: CDATABlock, encoding: .utf8) {
-            self.podDescription = podDescription
-            print("Self: \(self.podDescription)")
-        }
-    }
+
 }
 
 
