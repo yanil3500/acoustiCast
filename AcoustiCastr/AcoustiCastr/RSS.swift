@@ -37,6 +37,10 @@ extension RSS: XMLParserDelegate {
             
         }
         
+        if elementName == "enclosure" {
+            guard let url = attributeDict["url"] else { print("This is fucked!");return }
+            
+        }
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
