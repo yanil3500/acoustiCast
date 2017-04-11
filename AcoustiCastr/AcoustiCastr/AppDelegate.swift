@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         
-        var parser = RSS()
+        let parser = RSS()
         iTunes.shared.getPodcasts { (podcasts) in
             if let allPodcasts = podcasts {
                 if let podcastOne = allPodcasts.first {
@@ -27,7 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
-//        parser.beginParsing(url: setRSSFeed)
         
         return true
     }

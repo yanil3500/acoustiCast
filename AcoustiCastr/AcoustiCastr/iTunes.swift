@@ -58,7 +58,6 @@ class iTunes {
                 
                 
                 do {
-                    print("Inside of do: ")
                     if let rootJSON = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String : Any] {
                         let podcastJSON = rootJSON["results"]
                         if let allPodcasts = podcastJSON as? [[String : Any]] {

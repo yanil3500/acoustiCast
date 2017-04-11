@@ -15,17 +15,16 @@ class Episode {
     var duration: String
     var pubDate: String
     
-    init(title: String, description: String, podcastAudio: String, duration: String, pubDate: String) {
-        self.title = title
-        print("title: \(self.title)")
-        self.description = description
-        print("description: \(self.description)")
-        self.podcastAudio = podcastAudio
-        print("podcast: \(self.podcastAudio)")
-        self.duration = duration
-        print("Duration: \(self.duration)")
-        self.pubDate = pubDate
-        print("pubDate: \(self.pubDate)")
+    init?(episode: [String : String]) {
+        if let titleUnwrap = episode["title"], let descriptionUnwrap = episode["podDescription"], let audioUnwrap = episode["audioLink"], let pubDateUnwrap = episode["pubDate"], let durationUnwrap = episode["duration"] {
+            self.title = titleUnwrap
+            self.description = descriptionUnwrap
+            self.podcastAudio = audioUnwrap
+            self.pubDate = pubDateUnwrap
+            self.duration = durationUnwrap
+        } else {
+            return nil
+        }
     }
 }
 
