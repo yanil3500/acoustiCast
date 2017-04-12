@@ -13,16 +13,16 @@ import AVFoundation
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var containerView: UIView!
     
     var player = AVAudioPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let urlstring = "https://feeds.soundcloud.com/stream/316747147-comedybangbang-481-thomas-middleditch-kumail-nanjiani-martin-starr.mp3"
+        let urlstring = "http://feeds.soundcloud.com/stream/316747147-comedybangbang-481-thomas-middleditch-kumail-nanjiani-martin-starr.mp3"
         let url = URL(string: urlstring)
         self.downloadFileFromURL(url: url!)
+        
         
     }
     
