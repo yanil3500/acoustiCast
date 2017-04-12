@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    @IBOutlet weak var childViewForSafari: UIView!
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -29,12 +30,10 @@ class ViewController: UIViewController {
     @IBAction func buttonPressed(_ sender: Any) {
         print("button works!")
         func presentSafariViewControllerWith(urlString: String) {
-            print("Inside presentSafariViewController: \(urlString)")
-            guard let url = URL(string: urlString) else {
-                return
-            }
+            guard let url = URL(string: urlString) else {  print("This failed.");return}
             
             let safariController = SFSafariViewController(url: url)
+            self.childViewForSafari.frame = 
             self.present(safariController, animated: true, completion: nil)
         }
         iTunes.shared.getPodcasts { (podcasts) in
