@@ -12,6 +12,7 @@
 		CD076CF41E9BF22F00686520 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD076CF31E9BF22F00686520 /* Episode.swift */; };
 		CD076CF71E9BF2E200686520 /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD076CF61E9BF2E200686520 /* UIKitExtensions.swift */; };
 		CD076CF91E9BF4D400686520 /* iTunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD076CF81E9BF4D400686520 /* iTunes.swift */; };
+		CD8360111E9D8AD00041E900 /* podcast-one.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CD8360101E9D8AD00041E900 /* podcast-one.mp3 */; };
 		CDD2A3FF1E9BEF3D00D1A3EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD2A3FE1E9BEF3D00D1A3EA /* AppDelegate.swift */; };
 		CDD2A4011E9BEF3D00D1A3EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD2A4001E9BEF3D00D1A3EA /* ViewController.swift */; };
 		CDD2A4041E9BEF3D00D1A3EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDD2A4021E9BEF3D00D1A3EA /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 		CD076CF31E9BF22F00686520 /* Episode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		CD076CF61E9BF2E200686520 /* UIKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
 		CD076CF81E9BF4D400686520 /* iTunes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iTunes.swift; sourceTree = "<group>"; };
+		CD8360101E9D8AD00041E900 /* podcast-one.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "podcast-one.mp3"; sourceTree = "<group>"; };
 		CDD2A3FB1E9BEF3C00D1A3EA /* AcoustiCastr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AcoustiCastr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDD2A3FE1E9BEF3D00D1A3EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDD2A4001E9BEF3D00D1A3EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 		CDD2A4101E9BEF9500D1A3EA /* views */ = {
 			isa = PBXGroup;
 			children = (
+				CD8360101E9D8AD00041E900 /* podcast-one.mp3 */,
 				CDD2A4021E9BEF3D00D1A3EA /* Main.storyboard */,
 				CDD2A4051E9BEF3D00D1A3EA /* Assets.xcassets */,
 				CDD2A4071E9BEF3D00D1A3EA /* LaunchScreen.storyboard */,
@@ -173,6 +176,7 @@
 			files = (
 				CDD2A4091E9BEF3D00D1A3EA /* LaunchScreen.storyboard in Resources */,
 				CDD2A4061E9BEF3D00D1A3EA /* Assets.xcassets in Resources */,
+				CD8360111E9D8AD00041E900 /* podcast-one.mp3 in Resources */,
 				CDD2A4041E9BEF3D00D1A3EA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

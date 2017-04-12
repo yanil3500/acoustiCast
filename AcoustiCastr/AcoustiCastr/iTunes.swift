@@ -19,7 +19,7 @@ class iTunes {
     
     static let shared = iTunes()
     
-    var searchParameterTwo = "comedy"
+    var searchParameterTwo = "sports"
     
     private init (){
         self.session = URLSession(configuration: .default)
@@ -43,7 +43,7 @@ class iTunes {
         
         guard let url = self.components.url else { returnToMain(results: nil); return }
         
-        print("Inside of getPodcasts (the url): \(url)")
+                
         self.session.dataTask(with: url) { (data, response, error) in
             if error != nil {
                 print("getPodcasts error: \(String(describing: error))")
@@ -53,7 +53,6 @@ class iTunes {
             
             if let data = data {
                 
-                print("data: \(data)")
                 var podcasts = [Podcast]()
                 
                 

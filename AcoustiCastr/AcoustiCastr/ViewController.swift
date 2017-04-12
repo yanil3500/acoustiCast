@@ -9,35 +9,51 @@
 import UIKit
 import AVKit
 import AVFoundation
-class ViewController: UIViewController {
+import SafariServices
 
+
+class ViewController: UIViewController {
+    
+    @IBOutlet weak var containerView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let parser = RSS()
-        iTunes.shared.getPodcasts { (podcasts) in
-            if let allPodcasts = podcasts {
-                if let podcastOne = allPodcasts.first {
-                    OperationQueue.main.addOperation {
-                        parser.beginParsing(url: "https://wtfpod.libsyn.com/rss")
-                    }
-                }
-            }
-        }
-        let controller = AVPlayerViewController()
-        let url = URL(string: "https://traffic.libsyn.com/secure/wtfpod/WTF_-_EPISODE_752_RITCH_SHYDNER.mp3?dest-id=14434")
-        let player = AVPlayer(url: url!)
-        
-        controller.player = player
-        
-        self.present(controller, animated: true, completion: nil)
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    @IBAction func buttonPressed(_ sender: Any) {
+        print("button works!")
+        func presentSafariViewControllerWith(urlString: String) {
+            print("Inside presentSafariViewController: \(urlString)")
+            guard let url = URL(string: urlString) else {
+                return
+            }
+            
+            let safariController = SFSafariViewController(url: url)
+            self.present(safariController, animated: true, completion: nil)
+        }
+        iTunes.shared.getPodcasts { (podcasts) in
+            if let allPodcasts = podcasts {
+                guard let onePodcast = allPodcasts.first else { print("This failed."); return }
+                RSS.shared.rssFeed = onePodcast.podcastFeed
+                RSS.shared.getEpisodes(completion: { (episodes) in
+                    if let allEpisodes = episodes {
+                        presentSafariViewControllerWith(urlString: (allEpisodes[6].audiolink))
+                    } else {
+                        print("RSS failed.")
+                    }
+                })
+            } else {
+                print("iTunes failed.")
+            }
+        }
+    }
+    
 
 
 }
