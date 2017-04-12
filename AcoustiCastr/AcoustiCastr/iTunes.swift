@@ -19,6 +19,7 @@ class iTunes {
     
     static let shared = iTunes()
     
+    static var searchTerms = [URLQueryItem]()
     
     private init (){
         self.session = URLSession(configuration: .default)
@@ -26,17 +27,24 @@ class iTunes {
         self.components.scheme = "https"
         self.components.host = "itunes.apple.com"
     }
-//    func getSearchText(searchRequest: String) {
-//        let search = searchRequest.components(separatedBy: " ")
-//        var queryItems = [URLQueryItem]()
-//        
-//    }
+    func getSearchText(searchRequest: [String]){
+        let search = searchRequest
+        var queryItems = [URLQueryItem]()
+        search.forEach({ (searchTerm) in
+                queryItems.append(URLQueryItem(name: "term", value: searchTerm))
+        })
+        
+        iTunes.searchTerms = queryItems
+    }
     
     func getPodcasts(completion: @escaping GetPodcastsCompletion ) {
         
         
         let queryItemEntity = URLQueryItem(name: "entity", value: "podcast")
         self.components.queryItems = [queryItemEntity]
+        if iTunes.searchTerms.count >= 1 {
+            self.components.queryItems?.append(contentsOf: iTunes.searchTerms)
+        }
         self.components.path = "/search"
         
         func returnToMain(results: [Podcast]?){
