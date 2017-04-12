@@ -23,7 +23,7 @@ class Podcast {
             self.collectionName = ""
         }
         self.genre = json["primaryGenreName"] as! String
-        self.podcastFeed = json["feedUrl"] as! String!
+        self.podcastFeed = "https:\((json["feedUrl"] as! String).components(separatedBy: ":").dropFirst().joined())"
         self.podcastArt = json["artworkUrl600"] as! String
     }
 }

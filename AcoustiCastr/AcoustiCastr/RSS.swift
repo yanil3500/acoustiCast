@@ -22,6 +22,7 @@ class RSS: XMLParser {
     static let shared = RSS()
     
     private func beginParsing() {
+        print("Inside of beginParsing: \(self.rssFeed)")
         guard let url = URL(string: rssFeed) else {
             print("This does not work.")
             return; }
