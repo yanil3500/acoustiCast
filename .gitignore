@@ -152,6 +152,10 @@ playground.xcworkspace
 # For more information about the recommended setup visit:
 # https://docs.fastlane.tools/best-practices/source-control/#source-control
 
+### Carthage ###
+# Carthage - A simple, decentralized dependency manager for Cocoa
+Carthage/Checkouts/
+Carthage/Build/
 
 ### Xcode ###
 # Xcode
