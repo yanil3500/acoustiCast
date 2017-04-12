@@ -9,7 +9,6 @@
 import UIKit
 
 class FirstTimeViewController: UIViewController {
-    var searchTerms = [String]()
     @IBOutlet weak var searchBar: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +46,8 @@ extension FirstTimeViewController: UISearchBarDelegate {
         //Dismisses the keyboard from the view once user clicks search bar
         print("Stuff in search bar: \(String(describing: searchBar.text))")
         if let terms = searchBar.text?.lowercased().components(separatedBy: " ") {
-            self.searchTerms = terms
-            print("Inside of let branch: \(self.searchTerms.count)")
+            print("Inside of let branch: number of search terms: \(terms)")
+            iTunes.shared.getSearchText(searchRequest: terms)
         }
         self.searchBar.resignFirstResponder()
     }
