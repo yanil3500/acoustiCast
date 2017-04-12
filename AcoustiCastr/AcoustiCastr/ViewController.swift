@@ -9,41 +9,73 @@
 import UIKit
 import AVKit
 import AVFoundation
-import SafariServices
 
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var containerView: UIView!
     
+    var player = AVAudioPlayer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        let urlstring = "https://feeds.soundcloud.com/stream/316747147-comedybangbang-481-thomas-middleditch-kumail-nanjiani-martin-starr.mp3"
+        let url = URL(string: urlstring)
+        self.downloadFileFromURL(url: url!)
+        
     }
     
+    func downloadFileFromURL(url: URL){
+        weak var weakSelf = self
+        var downloadTask: URLSessionDownloadTask
+        downloadTask = URLSession.shared.downloadTask(with: url, completionHandler: { (outputURL, response, error) in
+            if error != nil {
+                print(error.debugDescription)
+                return
+            }
+            if let outputURL = outputURL {
+                //TODO: Move this code to play button pressed
+                weakSelf?.play(url: outputURL)
+            } else {
+                print("no output url")
+            }
+        })
+        
+        downloadTask.resume()
+        
+    }
+    
+    func play(url: URL) {
+        print("playing \(url)")
+        
+        do {
+            self.player = try AVAudioPlayer(contentsOf: url)
+            
+            player.volume = 1.0
+            player.play()
+        } catch let error as NSError {
+            //self.player = nil
+            print(error.localizedDescription)
+        } catch {
+            print("AVAudioPlayer init failed")
+        }
+        
+    }
     
     @IBAction func buttonPressed(_ sender: Any) {
         print("button works!")
-        func presentSafariViewControllerWith(urlString: String) {
-            print("Inside presentSafariViewController: \(urlString)")
-            guard let url = URL(string: urlString) else {
-                return
-            }
-            
-            let safariController = SFSafariViewController(url: url)
-            self.present(safariController, animated: true, completion: nil)
-        }
+        
+        
+
         iTunes.shared.getPodcasts { (podcasts) in
             if let allPodcasts = podcasts {
                 guard let onePodcast = allPodcasts.first else { print("This failed."); return }
                 RSS.shared.rssFeed = onePodcast.podcastFeed
                 RSS.shared.getEpisodes(completion: { (episodes) in
                     if let allEpisodes = episodes {
-                        presentSafariViewControllerWith(urlString: (allEpisodes[6].audiolink))
+//                        self.presentSafariViewControllerWith(urlString: (allEpisodes[6].audiolink))
+                        print(allEpisodes.first?.audiolink)
                     } else {
                         print("RSS failed.")
                     }
@@ -53,8 +85,6 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-
 
 }
 
