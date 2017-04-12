@@ -45,7 +45,7 @@ extension FirstTimeViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         //Dismisses the keyboard from the view once user clicks search bar
-        print("Inside of FirstTimeViewController: \(self.searchBar.text)")
+        
         self.searchBar.resignFirstResponder()
     }
 }

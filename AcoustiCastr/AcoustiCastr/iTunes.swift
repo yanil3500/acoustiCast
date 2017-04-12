@@ -19,7 +19,6 @@ class iTunes {
     
     static let shared = iTunes()
     
-    var searchParameterTwo = "sports"
     
     private init (){
         self.session = URLSession(configuration: .default)
@@ -27,12 +26,17 @@ class iTunes {
         self.components.scheme = "https"
         self.components.host = "itunes.apple.com"
     }
+//    func getSearchText(searchRequest: String) {
+//        let search = searchRequest.components(separatedBy: " ")
+//        var queryItems = [URLQueryItem]()
+//        
+//    }
     
     func getPodcasts(completion: @escaping GetPodcastsCompletion ) {
         
-        let queryItemByCreate = URLQueryItem(name: "term", value: searchParameterTwo)
+        
         let queryItemEntity = URLQueryItem(name: "entity", value: "podcast")
-        self.components.queryItems = [queryItemByCreate, queryItemEntity]
+        self.components.queryItems = [queryItemEntity]
         self.components.path = "/search"
         
         func returnToMain(results: [Podcast]?){
