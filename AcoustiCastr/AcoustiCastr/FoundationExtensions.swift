@@ -26,7 +26,7 @@ extension UserDefaults {
 extension String {
     
     func validate() -> Bool {
-        let pattern = "[^0-9a-zA-Z_-]"
+        let pattern = "[^0-9a-zA-Z_ -]"
         
         do {
             let regex = try NSRegularExpression(pattern: pattern, options: .caseInsensitive)

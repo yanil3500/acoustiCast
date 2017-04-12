@@ -14,6 +14,7 @@
 		CD076CF91E9BF4D400686520 /* iTunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD076CF81E9BF4D400686520 /* iTunes.swift */; };
 		CD8360111E9D8AD00041E900 /* podcast-one.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CD8360101E9D8AD00041E900 /* podcast-one.mp3 */; };
 		CDC7E7561E9E8D1F00DDE6AF /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC7E7551E9E8D1F00DDE6AF /* FoundationExtensions.swift */; };
+		CDC7E7581E9E8FDC00DDE6AF /* FirstTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC7E7571E9E8FDC00DDE6AF /* FirstTimeViewController.swift */; };
 		CDD2A3FF1E9BEF3D00D1A3EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD2A3FE1E9BEF3D00D1A3EA /* AppDelegate.swift */; };
 		CDD2A4011E9BEF3D00D1A3EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD2A4001E9BEF3D00D1A3EA /* ViewController.swift */; };
 		CDD2A4041E9BEF3D00D1A3EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDD2A4021E9BEF3D00D1A3EA /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 		CD076CF81E9BF4D400686520 /* iTunes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iTunes.swift; sourceTree = "<group>"; };
 		CD8360101E9D8AD00041E900 /* podcast-one.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "podcast-one.mp3"; sourceTree = "<group>"; };
 		CDC7E7551E9E8D1F00DDE6AF /* FoundationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
+		CDC7E7571E9E8FDC00DDE6AF /* FirstTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTimeViewController.swift; sourceTree = "<group>"; };
 		CDD2A3FB1E9BEF3C00D1A3EA /* AcoustiCastr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AcoustiCastr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDD2A3FE1E9BEF3D00D1A3EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDD2A4001E9BEF3D00D1A3EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				CDD2A4001E9BEF3D00D1A3EA /* ViewController.swift */,
+				CDC7E7571E9E8FDC00DDE6AF /* FirstTimeViewController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				CDC7E7561E9E8D1F00DDE6AF /* FoundationExtensions.swift in Sources */,
 				A1B79A331E9C355500F4B462 /* RSS.swift in Sources */,
 				CDD2A3FF1E9BEF3D00D1A3EA /* AppDelegate.swift in Sources */,
+				CDC7E7581E9E8FDC00DDE6AF /* FirstTimeViewController.swift in Sources */,
 				CD076CF21E9BF21F00686520 /* Podcast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
