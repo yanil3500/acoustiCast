@@ -49,6 +49,30 @@ extension UIImage {
             
         }
     }
+    
+    typealias podcastsWithImageCallback = ([Podcast]?)->()
+    
+    class func fetchImageWith(_ podcasts: [Podcast], completion: @escaping podcastsWithImageCallback){
+        var podcastsWithImages = [Podcast]()
+        OperationQueue().addOperation {
+            for pod in podcasts {
+                guard let url = URL(string: pod.podcastArt as! String) else { completion(nil); return }
+                //Optional try, so that if Data(contentsOf:) fails, nil gets assigned into data
+                if let data = try? Data(contentsOf: url) {
+                    guard let image = UIImage(data: data) else { fatalError("Image not found")}
+                    pod.podcastArt = image
+                    podcastsWithImages.append(pod)
+                } else {
+                    OperationQueue.main.addOperation {
+                        completion(nil)
+                    }
+                }
+            }
+            OperationQueue.main.addOperation {
+                completion(podcastsWithImages)
+            }
+        }
+    }
 }
 
 

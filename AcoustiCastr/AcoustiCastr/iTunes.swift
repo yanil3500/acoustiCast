@@ -77,9 +77,13 @@ class iTunes {
                                 let podcastInst = Podcast(json: podcast)
                                 podcasts.append(podcastInst)
                             }
+                            UIImage.fetchImageWith(podcasts, completion: { (podcastWithImages) in
+                                if let podcastWithArt = podcastWithImages {
+                                    returnToMain(results: podcastWithArt)
+                                }
+                            })
                         }
                     }
-                    returnToMain(results: podcasts)
                 } catch {
                     print("Some error")
                 }

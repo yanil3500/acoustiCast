@@ -23,6 +23,8 @@
 		CDD2A4041E9BEF3D00D1A3EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDD2A4021E9BEF3D00D1A3EA /* Main.storyboard */; };
 		CDD2A4061E9BEF3D00D1A3EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDD2A4051E9BEF3D00D1A3EA /* Assets.xcassets */; };
 		CDD2A4091E9BEF3D00D1A3EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDD2A4071E9BEF3D00D1A3EA /* LaunchScreen.storyboard */; };
+		CDF186EC1E9FFFFF0071C8DE /* SearchResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF186EA1E9FFFFF0071C8DE /* SearchResultsCell.swift */; };
+		CDF186ED1E9FFFFF0071C8DE /* SearchResultsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDF186EB1E9FFFFF0071C8DE /* SearchResultsCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		CDD2A4051E9BEF3D00D1A3EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDD2A4081E9BEF3D00D1A3EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CDD2A40A1E9BEF3D00D1A3EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDF186EA1E9FFFFF0071C8DE /* SearchResultsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsCell.swift; sourceTree = "<group>"; };
+		CDF186EB1E9FFFFF0071C8DE /* SearchResultsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultsCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,8 @@
 				A16662291E9F119A00DCA924 /* DetailPodcastViewController.storyboard */,
 				CDD2A4051E9BEF3D00D1A3EA /* Assets.xcassets */,
 				CDD2A4071E9BEF3D00D1A3EA /* LaunchScreen.storyboard */,
+				CDF186EA1E9FFFFF0071C8DE /* SearchResultsCell.swift */,
+				CDF186EB1E9FFFFF0071C8DE /* SearchResultsCell.xib */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -191,6 +197,7 @@
 			files = (
 				A166622D1E9F11B900DCA924 /* PlayerViewController.storyboard in Resources */,
 				CDD2A4091E9BEF3D00D1A3EA /* LaunchScreen.storyboard in Resources */,
+				CDF186ED1E9FFFFF0071C8DE /* SearchResultsCell.xib in Resources */,
 				CDD2A4061E9BEF3D00D1A3EA /* Assets.xcassets in Resources */,
 				CD8360111E9D8AD00041E900 /* podcast-one.mp3 in Resources */,
 				CDD2A4041E9BEF3D00D1A3EA /* Main.storyboard in Resources */,
@@ -211,6 +218,7 @@
 				CD076CF71E9BF2E200686520 /* UIKitExtensions.swift in Sources */,
 				CDC7E7561E9E8D1F00DDE6AF /* FoundationExtensions.swift in Sources */,
 				A1B79A331E9C355500F4B462 /* RSS.swift in Sources */,
+				CDF186EC1E9FFFFF0071C8DE /* SearchResultsCell.swift in Sources */,
 				A16662261E9F0CB800DCA924 /* PlayerViewController.swift in Sources */,
 				CDD2A3FF1E9BEF3D00D1A3EA /* AppDelegate.swift in Sources */,
 				CDC7E7581E9E8FDC00DDE6AF /* SearchViewController.swift in Sources */,

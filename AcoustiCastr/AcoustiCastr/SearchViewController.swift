@@ -10,6 +10,8 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
+
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -19,25 +21,41 @@ class SearchViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
-    var button_tag = -1
+    
+    var rowHeight = 50
     var searchTerm = [String]() {
         didSet {
             self.update()
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.searchBar.delegate = self
         
+        
+        //Register nib
+        let podcastNib = UINib(nibName: SearchResultsCell.identifier, bundle: nil)
+        print("Reuse ID: \(SearchResultsCell.identifier)")
+        self.tableView.register(podcastNib, forCellReuseIdentifier: SearchResultsCell.identifier)
+        
+        self.tableView.estimatedRowHeight = CGFloat(rowHeight)
+        
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        
+        self.update()
+        
     }
     
     func update(){
+        self.activityIndicator.startAnimating()
         print("Inside of update:")
         iTunes.shared.getPodcasts { (podcasts) in
             if let pods = podcasts {
                 self.allPodcasts = pods
+                self.activityIndicator.stopAnimating()
             }
         }
     }
@@ -53,16 +71,15 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == button_tag {
-            return 300
-        } else {
-            return 50
-        }
-    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let searchResultsCell = tableView.dequeueReusableCell(withIdentifier: SearchResultsCell.identifier, for: indexPath) as! SearchResultsCell
+        
+        searchResultsCell.podcastAuthor?.text = self.allPodcasts[indexPath.row].artistName
+        searchResultsCell.podcastName?.text = self.allPodcasts[indexPath.row].collectionName
+        searchResultsCell.podcastArt.image = self.allPodcasts[indexPath.row].podcastArt as? UIImage
+        
+        return searchResultsCell
     }
 
 
