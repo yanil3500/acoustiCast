@@ -28,6 +28,36 @@ class PlayerViewController: UIViewController {
         let playerItem: AVPlayerItem = AVPlayerItem(url: url!)
         player = AVPlayer(playerItem: playerItem)
         
+        let duration : CMTime = playerItem.asset.duration
+        let seconds : Float64 = CMTimeGetSeconds(duration)
+
+        self.sliderBar.minimumValue = 0
+        self.sliderBar.maximumValue = Float(seconds)
+        self.sliderBar.isContinuous = true
+        self.sliderBar.addTarget(self, action: #selector(PlayerViewController.sliderChanges(_:)), for: .valueChanged)
+        
+        let imageUrl = "https://ssl-static.libsyn.com/p/assets/6/c/a/3/6ca38c2fefa1e989/WTF_-_new_larger_cover.jpg"
+       
+        UIImage.fetchImageWith(imageUrl, callback: { (imageFromURL) in
+            self.artworkImage.image = imageFromURL
+        })
+        
+        
+        //Image URL: https://ssl-static.libsyn.com/p/assets/6/c/a/3/6ca38c2fefa1e989/WTF_-_new_larger_cover.jpg
+        
+    }
+    
+    func sliderChanges(_ sender: UISlider) {
+        print("Inside of playbackSliderChanges")
+        let secondsFromSlider : Int64 = Int64(sender.value)
+        let targetTime:CMTime = CMTimeMake(secondsFromSlider, 1)
+        
+        player!.seek(to: targetTime)
+        
+        if player!.rate == 0
+        {
+            player?.play()
+        }
     }
     
     
