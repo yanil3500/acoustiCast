@@ -52,7 +52,6 @@ class PlayerViewController: UIViewController {
         let seconds : Float64 = CMTimeGetSeconds(duration)
 
         self.sliderBar.minimumValue = 0
-        self.sliderBar.backgroundColor = UIColor.darkGray
         self.sliderBar.maximumValue = Float(seconds)
         self.sliderBar.isContinuous = true
         self.sliderBar.addTarget(self, action: #selector(PlayerViewController.sliderChanges(_:)), for: .valueChanged)
