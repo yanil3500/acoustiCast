@@ -13,7 +13,7 @@ class Podcast {
     var collectionName : String
     var genre : String
     var podcastFeed : String
-    var podcastArt : String
+    var podcastArt : Any?
     
     init(json: [String: Any] ) {
             self.artistName = json["artistName"] as! String
