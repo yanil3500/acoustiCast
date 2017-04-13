@@ -28,8 +28,27 @@ extension UIImage {
     }
 }
 extension UIImage {
+    typealias ImageCallback = (UIImage?)->()
     
-
+    class func fetchImageWith(_ urlString: String, callback: @escaping ImageCallback){
+        OperationQueue().addOperation {
+            guard let url = URL(string: urlString) else { callback(nil); return }
+            
+            //Optional try, so that if Data(contentsOf:) fails, nil gets assigned into data
+            if let data = try? Data(contentsOf: url) {
+                
+                guard let image = UIImage(data: data) else { fatalError("Image not found")}
+                OperationQueue.main.addOperation {
+                    callback(image)
+                }
+            } else {
+                OperationQueue.main.addOperation {
+                    callback(nil)
+                }
+            }
+            
+        }
+    }
 }
 
 
