@@ -59,6 +59,11 @@ extension RSS: XMLParserDelegate {
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        if elementName == "description" {
+            if self.descriptionCount == 0 {
+            self.episodeDictionary["podDescription"] = self.textNode
+            }
+        }
         if elementName == "item" {
         let episode = Episode(episode: self.episodeDictionary)
             self.episodes.append(episode)
@@ -77,11 +82,9 @@ extension RSS: XMLParserDelegate {
         }
         if elementName == "pubDate" {
             self.episodeDictionary["pubDate"] = self.textNode
-        } else if elementName == "description" {
-            self.episodeDictionary["podDescription"] = self.textNode
-            self.descriptionCount += 1
         }
- 
+
+        print("Number of description: \(self.descriptionCount)")
         
         self.textNode = ""
         
@@ -101,6 +104,7 @@ extension RSS: XMLParserDelegate {
             if self.descriptionCount == 0 {
             self.textNode += data
             }
+        self.descriptionCount += 1
         }
 
 

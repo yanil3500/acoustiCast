@@ -52,7 +52,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
             guard let firstPodcast = self.allPodcasts.first?.podcastFeed else { print("Failed to get episode");return -1 }
             RSS.shared.rssFeed = firstPodcast
             RSS.shared.getEpisodes(completion: { (episodes) in
-//                print("Podcast Description: \(String(describing: episodes?.first?.podDescription))")
+                print("Podcast Description: \(String(describing: episodes?.first?.podDescription))")
             })
             
         }
