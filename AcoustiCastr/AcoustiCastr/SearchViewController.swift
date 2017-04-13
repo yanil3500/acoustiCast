@@ -1,5 +1,5 @@
 //
-//  FirstTimeViewController.swift
+//  SearchViewController.swift
 //  AcoustiCastr
 //
 //  Created by Elyanil Liranzo Castro on 4/12/17.
@@ -8,21 +8,44 @@
 
 import UIKit
 
-class FirstTimeViewController: UIViewController {
+class SearchViewController: UIViewController {
+    
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
         self.searchBar.delegate = self
     }
     
 }
 
+extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    //TODO: Finish delegate methods
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        //TODO: return number of podcasts
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        //TODO: Create your customize cell and set it over here
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // Did select, do perform segue
+    }
+}
 
 
 
 //MARK: FirstTimeViewController conforms to UISearchBarDelegate
-extension FirstTimeViewController: UISearchBarDelegate {
+extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if !searchText.validate() {
