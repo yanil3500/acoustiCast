@@ -52,7 +52,7 @@
                         <outlet property="activityIndicator" destination="kJ5-R9-nx1" id="VwG-zY-yNC"/>
                         <outlet property="searchBar" destination="BQg-Pr-Hef" id="fcY-XO-Qb2"/>
                         <outlet property="tableView" destination="9HR-vm-9hz" id="eNE-73-mBL"/>
-                        <segue destination="0el-MM-7Ie" kind="show" id="Gbz-gk-lfk"/>
+                        <segue destination="0el-MM-7Ie" kind="show" identifier="DetailPodcastViewController" id="Gbz-gk-lfk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cdJ-iJ-JkQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -65,7 +65,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1IF-KK-zCP" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="qhv-7Q-jym"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EE9-Lv-6UF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="EE9-Lv-6UF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

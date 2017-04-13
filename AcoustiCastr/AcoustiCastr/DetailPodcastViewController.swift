@@ -9,7 +9,13 @@
 import UIKit
 
 class DetailPodcastViewController: UIViewController {
-
+    
+    @IBOutlet weak var podcastArt: UIImageView!
+    @IBOutlet weak var episodeView: UITableView!
+    @IBOutlet weak var podcastTitle: UINavigationItem!
+    var podcastDescription: String
+    
+    var episodes = [Episode]()
     
     //TODO: Add a table view for podcast
     

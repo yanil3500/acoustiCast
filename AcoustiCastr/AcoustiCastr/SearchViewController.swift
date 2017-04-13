@@ -50,7 +50,6 @@ class SearchViewController: UIViewController {
     }
     
     func update(){
-        self.activityIndicator.startAnimating()
         print("Inside of update:")
         iTunes.shared.getPodcasts { (podcasts) in
             if let pods = podcasts {
@@ -80,6 +79,10 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         searchResultsCell.podcastArt.image = self.allPodcasts[indexPath.row].podcastArt as? UIImage
         
         return searchResultsCell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.prepare(for: DetailPodcastViewController, sender: nil)
     }
 
 
@@ -112,6 +115,35 @@ extension SearchViewController: UISearchBarDelegate {
             self.searchTerm = terms
             print(iTunes.searchTerms)
         }
+        self.activityIndicator.startAnimating()
         self.searchBar.resignFirstResponder()
+    }
+}
+
+//MARK: Extension for segue preparation
+
+extension SearchViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if segue.identifier == DetailPodcastViewController.identifier {
+            //prepares podcast info.
+            if let selectedIndex = self.tableView.indexPathForSelectedRow?.row {
+                let selectedPodcast = self.allPodcasts[selectedIndex]
+                //hands rss feed from selected podcast to our RSS singleton
+                RSS.shared.rssFeed = selectedPodcast.podcastFeed
+                guard let destinationController = segue.destination as? DetailPodcastViewController else { print("Failed to prepare segue");return}
+                destinationController.podcastArt.image = selectedPodcast.podcastArt as? UIImage
+                destinationController.podcastTitle.title = selectedPodcast.collectionName
+                RSS.shared.getEpisodes(completion: { (episodes) in
+                    guard let podEpisodes = episodes else { print("Failed to get episodes") ;return}
+                    guard let aPodDescription = podEpisodes.first?.podDescription else { print("Failed to get podcast description."); return }
+                    destinationController.podcastDescription = aPodDescription
+                    destinationController.episodes = podEpisodes
+                })
+                
+                
+            }
+        }
     }
 }
