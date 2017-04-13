@@ -12,7 +12,6 @@
         <!--Player View Controller-->
         <scene sceneID="XRl-Py-DAP">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YM1-C3-8vp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="UIViewController-WBT-vs-Fzn" id="WBT-vs-Fzn" customClass="PlayerViewController" customModule="AcoustiCastr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WCm-QQ-Ype"/>
@@ -35,14 +34,23 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSe-BD-3e4">
                                 <rect key="frame" x="63" y="590" width="30" height="30"/>
                                 <state key="normal" title="-15"/>
+                                <connections>
+                                    <action selector="rewind:" destination="WBT-vs-Fzn" eventType="touchUpInside" id="XGU-kp-eJD"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oWy-5m-LGm">
                                 <rect key="frame" x="276" y="590" width="30" height="30"/>
                                 <state key="normal" title="+15"/>
+                                <connections>
+                                    <action selector="fastForward:" destination="WBT-vs-Fzn" eventType="touchUpInside" id="r66-4i-Odw"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9GD-Ad-kUP">
                                 <rect key="frame" x="172" y="519" width="30" height="30"/>
                                 <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="playButton:" destination="WBT-vs-Fzn" eventType="touchUpInside" id="FpH-5g-xP8"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -60,7 +68,12 @@
                             <constraint firstItem="GU7-jt-WS4" firstAttribute="top" secondItem="oWy-5m-LGm" secondAttribute="top" constant="-166" id="pSZ-Td-zu8"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="artworkImage" destination="pjV-0W-dFD" id="ccZ-K3-ywK"/>
+                        <outlet property="sliderBar" destination="GU7-jt-WS4" id="Qk1-Do-Ugf"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YM1-C3-8vp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3334" y="728"/>
         </scene>
