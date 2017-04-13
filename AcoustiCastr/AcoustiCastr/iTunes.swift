@@ -57,6 +57,7 @@ class iTunes {
         
                 
         self.session.dataTask(with: url) { (data, response, error) in
+            print("Inside of dataTask: \(url.absoluteString)")
             if error != nil {
                 print("getPodcasts error: \(String(describing: error))")
                 returnToMain(results: nil)

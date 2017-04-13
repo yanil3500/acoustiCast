@@ -15,22 +15,25 @@ class SearchViewController: UIViewController {
     
     var allPodcasts = [Podcast](){
         didSet{
+            print("FirsCall: \(self.allPodcasts.count)")
             self.collectionView.reloadData()
         }
     }
-    
+    var searchTerm = [String]() {
+        didSet {
+            self.update()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.searchBar.delegate = self
         
-        self.allPodcasts.forEach { (podcast) in
-            print("Podcast: \(podcast.collectionName)")
-        }
     }
     
     func update(){
+        print("Inside of update:")
         iTunes.shared.getPodcasts { (podcasts) in
             if let pods = podcasts {
                 self.allPodcasts = pods
@@ -45,7 +48,14 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //TODO: return number of podcasts
-        print("Inside of collectionView: \(self.allPodcasts.count)")
+        if self.allPodcasts.count != 0 {
+            guard let firstPodcast = self.allPodcasts.first?.podcastFeed else { print("Failed to get episode");return -1 }
+            RSS.shared.rssFeed = firstPodcast
+            RSS.shared.getEpisodes(completion: { (episodes) in
+//                print("Podcast Description: \(String(describing: episodes?.first?.podDescription))")
+            })
+            
+        }
         return self.allPodcasts.count
     }
     
@@ -58,6 +68,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // Did select, do perform segue
+        print("I selected \(indexPath.row)")
     }
 }
 
@@ -85,6 +96,8 @@ extension SearchViewController: UISearchBarDelegate {
         if let terms = searchBar.text?.lowercased().components(separatedBy: " ") {
             print("Inside of let branch: number of search terms: \(terms.count)")
             iTunes.shared.getSearchText(searchRequest: terms)
+            self.searchTerm = terms
+            print(iTunes.searchTerms)
         }
         self.searchBar.resignFirstResponder()
     }
