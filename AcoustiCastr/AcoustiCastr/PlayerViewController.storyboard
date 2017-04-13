@@ -31,38 +31,37 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="GU7-jt-WS4">
                                 <rect key="frame" x="8" y="439" width="359" height="31"/>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSe-BD-3e4">
-                                <rect key="frame" x="36" y="588" width="60" height="30"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="6LB-ag-hZM"/>
-                                    <constraint firstAttribute="height" constant="30" id="kF7-Xr-DZR"/>
-                                </constraints>
-                                <state key="normal" title="-15"/>
-                                <connections>
-                                    <action selector="rewind:" destination="WBT-vs-Fzn" eventType="touchUpInside" id="XGU-kp-eJD"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oWy-5m-LGm">
-                                <rect key="frame" x="279" y="588" width="60" height="30"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="J5q-E9-hbX"/>
-                                </constraints>
-                                <state key="normal" title="+15"/>
-                                <connections>
-                                    <action selector="fastForward:" destination="WBT-vs-Fzn" eventType="touchUpInside" id="r66-4i-Odw"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9GD-Ad-kUP">
-                                <rect key="frame" x="144.5" y="517" width="85" height="85"/>
+                                <rect key="frame" x="137.5" y="517" width="100" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="85" id="CUW-SO-4mH"/>
-                                    <constraint firstAttribute="width" constant="85" id="RT1-45-hBO"/>
+                                    <constraint firstAttribute="height" constant="100" id="CUW-SO-4mH"/>
+                                    <constraint firstAttribute="width" constant="100" id="RT1-45-hBO"/>
                                 </constraints>
                                 <state key="normal" title="Play" image="download__1_"/>
                                 <connections>
                                     <action selector="playButton:" destination="WBT-vs-Fzn" eventType="touchUpInside" id="FpH-5g-xP8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSe-BD-3e4">
+                                <rect key="frame" x="60" y="577" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="VxT-3f-5EC"/>
+                                    <constraint firstAttribute="width" constant="40" id="aWA-zR-6HX"/>
+                                </constraints>
+                                <state key="normal" title="-15" image="rewind"/>
+                                <connections>
+                                    <action selector="rewind:" destination="WBT-vs-Fzn" eventType="touchUpInside" id="XGU-kp-eJD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oWy-5m-LGm">
+                                <rect key="frame" x="275" y="577" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="1nh-Yd-mtB"/>
+                                    <constraint firstAttribute="width" constant="40" id="h1u-kh-nKc"/>
+                                </constraints>
+                                <state key="normal" title="+15" image="forward"/>
+                                <connections>
+                                    <action selector="fastForward:" destination="WBT-vs-Fzn" eventType="touchUpInside" id="r66-4i-Odw"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -70,16 +69,16 @@
                         <constraints>
                             <constraint firstItem="GU7-jt-WS4" firstAttribute="top" secondItem="pjV-0W-dFD" secondAttribute="bottom" constant="56" id="0zH-Sl-EcK"/>
                             <constraint firstItem="pjV-0W-dFD" firstAttribute="leading" secondItem="Zdo-Vs-QBY" secondAttribute="leadingMargin" constant="-6" id="1pK-xL-ITQ"/>
-                            <constraint firstItem="tQv-3G-gSs" firstAttribute="top" secondItem="YSe-BD-3e4" secondAttribute="bottom" constant="49" id="2Vo-Vj-2jq"/>
+                            <constraint firstItem="tQv-3G-gSs" firstAttribute="top" secondItem="YSe-BD-3e4" secondAttribute="bottom" constant="50" id="5Vu-nX-22r"/>
                             <constraint firstItem="9GD-Ad-kUP" firstAttribute="top" secondItem="GU7-jt-WS4" secondAttribute="bottom" constant="48" id="7Dw-C5-TNk"/>
                             <constraint firstItem="9GD-Ad-kUP" firstAttribute="centerX" secondItem="GU7-jt-WS4" secondAttribute="centerX" id="Fem-vv-mRy"/>
+                            <constraint firstItem="YSe-BD-3e4" firstAttribute="leading" secondItem="Zdo-Vs-QBY" secondAttribute="leading" constant="60" id="G2e-YS-SZ4"/>
                             <constraint firstItem="pjV-0W-dFD" firstAttribute="top" secondItem="WCm-QQ-Ype" secondAttribute="bottom" constant="8" symbolic="YES" id="JOd-b1-leY"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="oWy-5m-LGm" secondAttribute="trailing" constant="20" id="L7S-xC-0vh"/>
+                            <constraint firstItem="tQv-3G-gSs" firstAttribute="top" secondItem="oWy-5m-LGm" secondAttribute="bottom" constant="50" id="MDw-Ab-4lM"/>
                             <constraint firstAttribute="trailing" secondItem="pjV-0W-dFD" secondAttribute="trailing" constant="10" id="ckU-hI-z9e"/>
                             <constraint firstItem="GU7-jt-WS4" firstAttribute="leading" secondItem="Zdo-Vs-QBY" secondAttribute="leading" constant="10" id="pV5-rF-aaI"/>
-                            <constraint firstItem="YSe-BD-3e4" firstAttribute="leading" secondItem="Zdo-Vs-QBY" secondAttribute="leadingMargin" constant="20" id="qJH-3a-SMK"/>
-                            <constraint firstItem="YSe-BD-3e4" firstAttribute="baseline" secondItem="oWy-5m-LGm" secondAttribute="baseline" id="v5f-KF-NKx"/>
                             <constraint firstAttribute="trailing" secondItem="GU7-jt-WS4" secondAttribute="trailing" constant="10" id="xnG-no-FhB"/>
+                            <constraint firstAttribute="trailing" secondItem="oWy-5m-LGm" secondAttribute="trailing" constant="60" id="zKL-F8-V5f"/>
                         </constraints>
                     </view>
                     <connections>
@@ -94,5 +93,7 @@
     </scenes>
     <resources>
         <image name="download__1_" width="341" height="341"/>
+        <image name="forward" width="170" height="170"/>
+        <image name="rewind" width="170" height="170"/>
     </resources>
 </document>
