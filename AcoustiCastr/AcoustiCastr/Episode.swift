@@ -10,6 +10,7 @@ import UIKit
 
 class Episode {
     var title: String = ""
+    var podDescription : String = ""
     var summary: String = ""
     var audiolink: String = ""
     var duration: String = ""
@@ -25,6 +26,7 @@ class Episode {
         }
         self.pubDate = episode["pubDate"]!
         self.duration = episode["duration"]!
+        self.podDescription = episode["podDescription"]!
     }
 }
 
