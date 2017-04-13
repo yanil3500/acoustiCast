@@ -15,7 +15,10 @@ class FirstTimeViewController: UIViewController {
         
         self.searchBar.delegate = self
     }
+    
 }
+
+
 
 
 //MARK: FirstTimeViewController conforms to UISearchBarDelegate

@@ -12,6 +12,7 @@ import UIKit
 extension UIImage {
     
     func resize(size: CGSize) -> UIImage? {
+        
         //Creates a graphics context
         UIGraphicsBeginImageContext(size)
         
@@ -26,6 +27,30 @@ extension UIImage {
         return resizedImage
     }
 }
+extension UIImage {
+    
+    //Courtesy of user Leo Dabus on Stackoverflow
+//    class func downloadedFrom(urlFrom: String) {
+//        guard let imageUrl = URL(string: urlFrom) else { print("Failed to get Image URL");return }
+//        URLSession.shared.dataTask(with: imageUrl) { (data, response, error) in
+//            if error != nil {
+//                print("Here is the error code and response. \(error)")
+//                return;
+//            }
+//            guard let imageData = data else { fatalError("Failed to get image data"); return }
+//            let image = UIImage(data: imageData)
+//            DispatchQueue.main.async {
+//                self.image = image
+//            }
+//        }.resume()
+//
+//    func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {
+//        guard let url = URL(string: link) else { return }
+//        downloadedFrom(url: url, contentMode: mode)
+//    }
+
+}
+
 
 
 
