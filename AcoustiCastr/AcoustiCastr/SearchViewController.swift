@@ -13,11 +13,29 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var allPodcasts = [Podcast](){
+        didSet{
+            self.collectionView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.searchBar.delegate = self
+        
+        self.allPodcasts.forEach { (podcast) in
+            print("Podcast: \(podcast.collectionName)")
+        }
+    }
+    
+    func update(){
+        iTunes.shared.getPodcasts { (podcasts) in
+            if let pods = podcasts {
+                self.allPodcasts = pods
+            }
+        }
     }
     
 }
@@ -27,7 +45,8 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //TODO: return number of podcasts
-        return 3
+        print("Inside of collectionView: \(self.allPodcasts.count)")
+        return self.allPodcasts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -52,15 +71,7 @@ extension SearchViewController: UISearchBarDelegate {
             let lastIndex = searchText.index(before: searchText.endIndex)
             searchBar.text = searchText.substring(to: lastIndex)
         }
-//        guard let searchedText = searchBar.text else { return; }
-//        //Populates table according to what user is searching for
-//        self.displayRepos = self.repos.filter({ (repo) -> Bool in
-//            repo.repoName.contains(searchedText)
-//        })
-//        
-//        if searchBar.text == "" {
-//            self.displayRepos = nil
-//        }
+
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -72,7 +83,7 @@ extension SearchViewController: UISearchBarDelegate {
         //Dismisses the keyboard from the view once user clicks search bar
         print("Stuff in search bar: \(String(describing: searchBar.text))")
         if let terms = searchBar.text?.lowercased().components(separatedBy: " ") {
-            print("Inside of let branch: number of search terms: \(terms)")
+            print("Inside of let branch: number of search terms: \(terms.count)")
             iTunes.shared.getSearchText(searchRequest: terms)
         }
         self.searchBar.resignFirstResponder()
