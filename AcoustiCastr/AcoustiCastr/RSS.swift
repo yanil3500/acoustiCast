@@ -84,7 +84,6 @@ extension RSS: XMLParserDelegate {
             self.episodeDictionary["pubDate"] = self.textNode
         }
 
-        print("Number of description: \(self.descriptionCount)")
         
         self.textNode = ""
         

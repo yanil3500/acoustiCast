@@ -16,42 +16,57 @@ class PlayerViewController: UIViewController {
     
     var player: AVPlayer?
     var playerItem: AVPlayerItem?
+    var examplePodcast : Episode?
+    var podcastEpUrl : String = ""
+    var updater : CADisplayLink! = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        iTunes.shared.getSearchText(searchRequest: ["wtf"])
+        iTunes.shared.getPodcasts(completion: { (podcasts) in
+            guard let pod = podcasts?.first else { print("Failure to get podcast"); return }
+            UIImage.fetchImageWith(pod.podcastArt as! String, callback: { (image) in
+                guard let podArt = image else { print("Failed to get image");return }
+                pod.podcastArt = podArt
+                self.artworkImage.image = podArt
+            })
+            RSS.shared.rssFeed = pod.podcastFeed
+            RSS.shared.getEpisodes(completion: { (episodes) in
+                guard let epOne = episodes?.first else { print("failed"); return }
+                self.examplePodcast = epOne
+                guard let urls = self.examplePodcast?.audiolink else { print("failed again"); return }
+                print("Inside of closure: \(urls)")
+                self.podcastEpUrl = urls
+            })
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        let url = URL(string: "http://feeds.soundcloud.com/stream/316747147-comedybangbang-481-thomas-middleditch-kumail-nanjiani-martin-starr.mp3")
-        let playerItem: AVPlayerItem = AVPlayerItem(url: url!)
+        guard let url = URL(string: "https://traffic.libsyn.com/secure/wtfpod/WTF_-_EPISODE_801_ANNE_HATHAWAY.mp3?dest-id=14434" ) else { print("failed to get episode link") ;return}
+        let playerItem: AVPlayerItem = AVPlayerItem(url: url)
         player = AVPlayer(playerItem: playerItem)
+
         
         let duration : CMTime = playerItem.asset.duration
         let seconds : Float64 = CMTimeGetSeconds(duration)
 
         self.sliderBar.minimumValue = 0
+        self.sliderBar.backgroundColor = UIColor.darkGray
         self.sliderBar.maximumValue = Float(seconds)
         self.sliderBar.isContinuous = true
         self.sliderBar.addTarget(self, action: #selector(PlayerViewController.sliderChanges(_:)), for: .valueChanged)
         
-        let imageUrl = "https://ssl-static.libsyn.com/p/assets/6/c/a/3/6ca38c2fefa1e989/WTF_-_new_larger_cover.jpg"
-       
-        UIImage.fetchImageWith(imageUrl, callback: { (imageFromURL) in
-            self.artworkImage.image = imageFromURL
-        })
         
-        
-        //Image URL: https://ssl-static.libsyn.com/p/assets/6/c/a/3/6ca38c2fefa1e989/WTF_-_new_larger_cover.jpg
-        
+
     }
+    
+    
     
     func sliderChanges(_ sender: UISlider) {
         print("Inside of playbackSliderChanges")
         let secondsFromSlider : Int64 = Int64(sender.value)
         let targetTime:CMTime = CMTimeMake(secondsFromSlider, 1)
-        
         player!.seek(to: targetTime)
         
         if player!.rate == 0
@@ -82,4 +97,6 @@ class PlayerViewController: UIViewController {
             (sender as! UIButton).setTitle("Play", for: UIControlState.normal)
         }
     }
+    
+
 }
