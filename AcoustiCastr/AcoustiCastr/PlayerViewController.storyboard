@@ -64,17 +64,36 @@
                                     <constraint firstAttribute="height" constant="355" id="OjW-EU-Q6r"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFN-uP-Lgv">
+                                <rect key="frame" x="10" y="555" width="72" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIY-iC-B5A">
+                                <rect key="frame" x="329" y="555" width="75" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="1re-MS-4AM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="tQv-3G-gSs" firstAttribute="top" secondItem="YSe-BD-3e4" secondAttribute="bottom" constant="50" id="5Vu-nX-22r"/>
                             <constraint firstItem="9GD-Ad-kUP" firstAttribute="top" secondItem="GU7-jt-WS4" secondAttribute="bottom" constant="20" id="7Dw-C5-TNk"/>
+                            <constraint firstItem="CIY-iC-B5A" firstAttribute="top" secondItem="GU7-jt-WS4" secondAttribute="bottom" constant="-2" id="7Tk-Lo-TLp"/>
+                            <constraint firstAttribute="trailing" secondItem="CIY-iC-B5A" secondAttribute="trailing" constant="10" id="AIg-cC-xrO"/>
                             <constraint firstItem="9GD-Ad-kUP" firstAttribute="centerX" secondItem="GU7-jt-WS4" secondAttribute="centerX" id="Fem-vv-mRy"/>
                             <constraint firstItem="YSe-BD-3e4" firstAttribute="leading" secondItem="Zdo-Vs-QBY" secondAttribute="leading" constant="60" id="G2e-YS-SZ4"/>
                             <constraint firstItem="pjV-0W-dFD" firstAttribute="top" secondItem="WCm-QQ-Ype" secondAttribute="bottom" id="JOd-b1-leY"/>
                             <constraint firstItem="tQv-3G-gSs" firstAttribute="top" secondItem="oWy-5m-LGm" secondAttribute="bottom" constant="50" id="MDw-Ab-4lM"/>
                             <constraint firstItem="pjV-0W-dFD" firstAttribute="centerX" secondItem="Zdo-Vs-QBY" secondAttribute="centerX" id="Uqj-zB-0oe"/>
                             <constraint firstItem="pjV-0W-dFD" firstAttribute="leading" secondItem="Zdo-Vs-QBY" secondAttribute="leadingMargin" constant="-8" id="VrP-es-lP7"/>
+                            <constraint firstItem="UFN-uP-Lgv" firstAttribute="centerY" secondItem="CIY-iC-B5A" secondAttribute="centerY" id="gcD-0C-CKb"/>
+                            <constraint firstItem="UFN-uP-Lgv" firstAttribute="leading" secondItem="Zdo-Vs-QBY" secondAttribute="leading" constant="10" id="nln-jE-gV1"/>
                             <constraint firstItem="GU7-jt-WS4" firstAttribute="leading" secondItem="Zdo-Vs-QBY" secondAttribute="leading" constant="10" id="pV5-rF-aaI"/>
                             <constraint firstItem="tQv-3G-gSs" firstAttribute="top" secondItem="9GD-Ad-kUP" secondAttribute="bottom" constant="59" id="qmY-fa-VzR"/>
                             <constraint firstAttribute="trailing" secondItem="GU7-jt-WS4" secondAttribute="trailing" constant="10" id="xnG-no-FhB"/>
@@ -83,13 +102,15 @@
                     </view>
                     <connections>
                         <outlet property="artworkImage" destination="pjV-0W-dFD" id="ccZ-K3-ywK"/>
+                        <outlet property="endTimeLabel" destination="CIY-iC-B5A" id="lbf-UJ-pQu"/>
                         <outlet property="playButton" destination="9GD-Ad-kUP" id="9e0-kI-ZPc"/>
                         <outlet property="sliderBar" destination="GU7-jt-WS4" id="Qk1-Do-Ugf"/>
+                        <outlet property="startTimeLabel" destination="UFN-uP-Lgv" id="BrQ-Uu-wmh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YM1-C3-8vp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3333.5999999999999" y="727.28635682158927"/>
+            <point key="canvasLocation" x="3333.3333333333335" y="727.17391304347836"/>
         </scene>
     </scenes>
     <resources>
