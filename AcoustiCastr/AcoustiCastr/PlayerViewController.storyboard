@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WBT-vs-Fzn">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,14 +19,14 @@
                         <viewControllerLayoutGuide type="bottom" id="tQv-3G-gSs"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Zdo-Vs-QBY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="GU7-jt-WS4">
-                                <rect key="frame" x="8" y="458" width="359" height="31"/>
+                                <rect key="frame" x="8" y="527" width="398" height="31"/>
                             </slider>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9GD-Ad-kUP">
-                                <rect key="frame" x="137.5" y="508" width="100" height="100"/>
+                                <rect key="frame" x="157.66666666666669" y="577" width="100.00000000000006" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="CUW-SO-4mH"/>
                                     <constraint firstAttribute="width" constant="100" id="RT1-45-hBO"/>
@@ -37,7 +37,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSe-BD-3e4">
-                                <rect key="frame" x="60" y="577" width="40" height="40"/>
+                                <rect key="frame" x="60" y="646" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="VxT-3f-5EC"/>
                                     <constraint firstAttribute="width" constant="40" id="aWA-zR-6HX"/>
@@ -48,7 +48,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oWy-5m-LGm">
-                                <rect key="frame" x="275" y="577" width="40" height="40"/>
+                                <rect key="frame" x="314" y="646" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="1nh-Yd-mtB"/>
                                     <constraint firstAttribute="width" constant="40" id="h1u-kh-nKc"/>
@@ -59,7 +59,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pjV-0W-dFD">
-                                <rect key="frame" x="8" y="20" width="355" height="355"/>
+                                <rect key="frame" x="12" y="20" width="390" height="355"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="355" id="OjW-EU-Q6r"/>
                                 </constraints>
@@ -67,14 +67,14 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="pjV-0W-dFD" firstAttribute="leading" secondItem="Zdo-Vs-QBY" secondAttribute="leadingMargin" constant="-8" id="1pK-xL-ITQ"/>
                             <constraint firstItem="tQv-3G-gSs" firstAttribute="top" secondItem="YSe-BD-3e4" secondAttribute="bottom" constant="50" id="5Vu-nX-22r"/>
                             <constraint firstItem="9GD-Ad-kUP" firstAttribute="top" secondItem="GU7-jt-WS4" secondAttribute="bottom" constant="20" id="7Dw-C5-TNk"/>
                             <constraint firstItem="9GD-Ad-kUP" firstAttribute="centerX" secondItem="GU7-jt-WS4" secondAttribute="centerX" id="Fem-vv-mRy"/>
                             <constraint firstItem="YSe-BD-3e4" firstAttribute="leading" secondItem="Zdo-Vs-QBY" secondAttribute="leading" constant="60" id="G2e-YS-SZ4"/>
                             <constraint firstItem="pjV-0W-dFD" firstAttribute="top" secondItem="WCm-QQ-Ype" secondAttribute="bottom" id="JOd-b1-leY"/>
                             <constraint firstItem="tQv-3G-gSs" firstAttribute="top" secondItem="oWy-5m-LGm" secondAttribute="bottom" constant="50" id="MDw-Ab-4lM"/>
-                            <constraint firstAttribute="trailing" secondItem="pjV-0W-dFD" secondAttribute="trailing" constant="12" id="ckU-hI-z9e"/>
+                            <constraint firstItem="pjV-0W-dFD" firstAttribute="centerX" secondItem="Zdo-Vs-QBY" secondAttribute="centerX" id="Uqj-zB-0oe"/>
+                            <constraint firstItem="pjV-0W-dFD" firstAttribute="leading" secondItem="Zdo-Vs-QBY" secondAttribute="leadingMargin" constant="-8" id="VrP-es-lP7"/>
                             <constraint firstItem="GU7-jt-WS4" firstAttribute="leading" secondItem="Zdo-Vs-QBY" secondAttribute="leading" constant="10" id="pV5-rF-aaI"/>
                             <constraint firstItem="tQv-3G-gSs" firstAttribute="top" secondItem="9GD-Ad-kUP" secondAttribute="bottom" constant="59" id="qmY-fa-VzR"/>
                             <constraint firstAttribute="trailing" secondItem="GU7-jt-WS4" secondAttribute="trailing" constant="10" id="xnG-no-FhB"/>
