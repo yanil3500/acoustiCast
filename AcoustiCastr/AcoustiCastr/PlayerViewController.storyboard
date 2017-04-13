@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WBT-vs-Fzn">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Player View Controller-->
+        <scene sceneID="XRl-Py-DAP">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YM1-C3-8vp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="UIViewController-WBT-vs-Fzn" id="WBT-vs-Fzn" customClass="PlayerViewController" customModule="AcoustiCastr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WCm-QQ-Ype"/>
+                        <viewControllerLayoutGuide type="bottom" id="tQv-3G-gSs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zdo-Vs-QBY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pjV-0W-dFD">
+                                <rect key="frame" x="16" y="28" width="340" height="340"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="340" id="3Ep-gq-hZq"/>
+                                    <constraint firstAttribute="width" constant="340" id="5dC-di-uOQ"/>
+                                </constraints>
+                            </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="GU7-jt-WS4">
+                                <rect key="frame" x="15" y="424" width="344" height="31"/>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSe-BD-3e4">
+                                <rect key="frame" x="63" y="590" width="30" height="30"/>
+                                <state key="normal" title="-15"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oWy-5m-LGm">
+                                <rect key="frame" x="276" y="590" width="30" height="30"/>
+                                <state key="normal" title="+15"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9GD-Ad-kUP">
+                                <rect key="frame" x="172" y="519" width="30" height="30"/>
+                                <state key="normal" title="Play"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GU7-jt-WS4" firstAttribute="leading" secondItem="9GD-Ad-kUP" secondAttribute="trailing" constant="-185" id="1m6-1S-yVF"/>
+                            <constraint firstItem="oWy-5m-LGm" firstAttribute="leading" secondItem="GU7-jt-WS4" secondAttribute="trailing" constant="-81" id="2rG-Gr-4YP"/>
+                            <constraint firstItem="pjV-0W-dFD" firstAttribute="top" secondItem="Zdo-Vs-QBY" secondAttribute="top" constant="28" id="9od-ra-J6b"/>
+                            <constraint firstItem="pjV-0W-dFD" firstAttribute="centerX" secondItem="Zdo-Vs-QBY" secondAttribute="centerX" constant="-1.5" id="LFX-eq-9zI"/>
+                            <constraint firstItem="GU7-jt-WS4" firstAttribute="top" secondItem="YSe-BD-3e4" secondAttribute="top" constant="-166" id="Ois-fo-Vsb"/>
+                            <constraint firstItem="GU7-jt-WS4" firstAttribute="leading" secondItem="YSe-BD-3e4" secondAttribute="trailing" constant="-76" id="R4z-Mp-80n"/>
+                            <constraint firstItem="GU7-jt-WS4" firstAttribute="width" secondItem="Zdo-Vs-QBY" secondAttribute="width" constant="-35" id="ecO-Sq-gjj"/>
+                            <constraint firstItem="9GD-Ad-kUP" firstAttribute="top" secondItem="GU7-jt-WS4" secondAttribute="top" constant="95" id="feN-E9-gmJ"/>
+                            <constraint firstItem="9GD-Ad-kUP" firstAttribute="leading" secondItem="Zdo-Vs-QBY" secondAttribute="leading" constant="172" id="h4B-8u-Kcg"/>
+                            <constraint firstAttribute="bottom" secondItem="9GD-Ad-kUP" secondAttribute="bottom" constant="118" id="kyu-5b-fFS"/>
+                            <constraint firstItem="GU7-jt-WS4" firstAttribute="top" secondItem="oWy-5m-LGm" secondAttribute="top" constant="-166" id="pSZ-Td-zu8"/>
+                        </constraints>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="3334" y="728"/>
+        </scene>
+    </scenes>
+</document>
