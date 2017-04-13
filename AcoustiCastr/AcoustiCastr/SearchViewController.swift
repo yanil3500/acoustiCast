@@ -10,15 +10,16 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var collectionView: UICollectionView!
     
     var allPodcasts = [Podcast](){
         didSet{
             print("FirsCall: \(self.allPodcasts.count)")
-            self.collectionView.reloadData()
+            self.tableView.reloadData()
         }
     }
+    var button_tag = -1
     var searchTerm = [String]() {
         didSet {
             self.update()
@@ -26,8 +27,8 @@ class SearchViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView.delegate = self
-        self.collectionView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         self.searchBar.delegate = self
         
     }
@@ -43,33 +44,28 @@ class SearchViewController: UIViewController {
     
 }
 
-extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     //TODO: Finish delegate methods
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //TODO: return number of podcasts
-        if self.allPodcasts.count != 0 {
-            guard let firstPodcast = self.allPodcasts.first?.podcastFeed else { print("Failed to get episode");return -1 }
-            RSS.shared.rssFeed = firstPodcast
-            RSS.shared.getEpisodes(completion: { (episodes) in
-                print("Podcast Description: \(String(describing: episodes?.first?.podDescription))")
-            })
-            
-        }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.allPodcasts.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //TODO: Create your customize cell and set it over here
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-        
-        return cell
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == button_tag {
+            return 300
+        } else {
+            return 50
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // Did select, do perform segue
-        print("I selected \(indexPath.row)")
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
     }
+
+
 }
 
 

@@ -25,43 +25,26 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="q1a-P8-2c0">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9HR-vm-9hz">
                                 <rect key="frame" x="0.0" y="108" width="375" height="559"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JSy-AR-Vh8">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="Umc-IT-ctN">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="q1a-P8-2c0" firstAttribute="top" secondItem="BQg-Pr-Hef" secondAttribute="bottom" id="AP4-z3-pE4"/>
-                            <constraint firstItem="q1a-P8-2c0" firstAttribute="top" secondItem="BQg-Pr-Hef" secondAttribute="bottom" id="Kpm-FD-7Ud"/>
+                            <constraint firstItem="9HR-vm-9hz" firstAttribute="top" secondItem="BQg-Pr-Hef" secondAttribute="bottom" id="FBY-KD-O14"/>
                             <constraint firstItem="BQg-Pr-Hef" firstAttribute="top" secondItem="adi-eY-pJA" secondAttribute="bottom" id="MWe-Di-3l3"/>
-                            <constraint firstItem="q1a-P8-2c0" firstAttribute="leading" secondItem="v5u-vP-Owi" secondAttribute="leading" id="PZC-TZ-hqe"/>
+                            <constraint firstAttribute="trailing" secondItem="9HR-vm-9hz" secondAttribute="trailing" id="T4a-pD-a05"/>
                             <constraint firstItem="BQg-Pr-Hef" firstAttribute="leading" secondItem="v5u-vP-Owi" secondAttribute="leading" id="VVQ-DI-KqR"/>
-                            <constraint firstItem="VAd-Vn-pUF" firstAttribute="top" secondItem="q1a-P8-2c0" secondAttribute="bottom" id="aH9-Ta-Fjz"/>
-                            <constraint firstAttribute="trailing" secondItem="q1a-P8-2c0" secondAttribute="trailing" id="cXA-SP-u0t"/>
+                            <constraint firstItem="9HR-vm-9hz" firstAttribute="leading" secondItem="v5u-vP-Owi" secondAttribute="leading" id="avM-sP-S3K"/>
                             <constraint firstAttribute="trailing" secondItem="BQg-Pr-Hef" secondAttribute="trailing" id="dsx-dX-gUK"/>
+                            <constraint firstItem="VAd-Vn-pUF" firstAttribute="top" secondItem="9HR-vm-9hz" secondAttribute="bottom" id="qIW-eO-LiE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="AcoustiCastr" id="wQT-8w-we1"/>
                     <connections>
-                        <outlet property="collectionView" destination="q1a-P8-2c0" id="7vK-x3-4sK"/>
                         <outlet property="searchBar" destination="BQg-Pr-Hef" id="fcY-XO-Qb2"/>
+                        <outlet property="tableView" destination="9HR-vm-9hz" id="eNE-73-mBL"/>
                         <segue destination="0el-MM-7Ie" kind="show" id="Gbz-gk-lfk"/>
                     </connections>
                 </viewController>
