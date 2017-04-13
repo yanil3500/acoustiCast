@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A128D6ED1EA0223B0071BAA0 /* AVFoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128D6EC1EA0223B0071BAA0 /* AVFoundationExtensions.swift */; };
 		A16662261E9F0CB800DCA924 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16662251E9F0CB800DCA924 /* PlayerViewController.swift */; };
 		A16662281E9F0E0200DCA924 /* DetailPodcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16662271E9F0E0200DCA924 /* DetailPodcastViewController.swift */; };
 		A166622B1E9F119A00DCA924 /* DetailPodcastViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A16662291E9F119A00DCA924 /* DetailPodcastViewController.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A128D6EC1EA0223B0071BAA0 /* AVFoundationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVFoundationExtensions.swift; sourceTree = "<group>"; };
 		A16662251E9F0CB800DCA924 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		A16662271E9F0E0200DCA924 /* DetailPodcastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailPodcastViewController.swift; sourceTree = "<group>"; };
 		A166622A1E9F119A00DCA924 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DetailPodcastViewController.storyboard; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 		CD076CF51E9BF2C300686520 /* extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A128D6EC1EA0223B0071BAA0 /* AVFoundationExtensions.swift */,
 				CD076CF61E9BF2E200686520 /* UIKitExtensions.swift */,
 				CDC7E7551E9E8D1F00DDE6AF /* FoundationExtensions.swift */,
 			);
@@ -208,6 +211,7 @@
 				A16662281E9F0E0200DCA924 /* DetailPodcastViewController.swift in Sources */,
 				CD076CF91E9BF4D400686520 /* iTunes.swift in Sources */,
 				CD076CF41E9BF22F00686520 /* Episode.swift in Sources */,
+				A128D6ED1EA0223B0071BAA0 /* AVFoundationExtensions.swift in Sources */,
 				CD076CF71E9BF2E200686520 /* UIKitExtensions.swift in Sources */,
 				CDC7E7561E9E8D1F00DDE6AF /* FoundationExtensions.swift in Sources */,
 				A1B79A331E9C355500F4B462 /* RSS.swift in Sources */,
