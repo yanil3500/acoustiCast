@@ -31,7 +31,7 @@
                                     <constraint firstAttribute="height" constant="100" id="CUW-SO-4mH"/>
                                     <constraint firstAttribute="width" constant="100" id="RT1-45-hBO"/>
                                 </constraints>
-                                <state key="normal" title="Play" image="download__1_"/>
+                                <state key="normal" title="Play" image="play"/>
                                 <connections>
                                     <action selector="playButton:" destination="WBT-vs-Fzn" eventType="touchUpInside" id="FpH-5g-xP8"/>
                                 </connections>
@@ -83,6 +83,7 @@
                     </view>
                     <connections>
                         <outlet property="artworkImage" destination="pjV-0W-dFD" id="ccZ-K3-ywK"/>
+                        <outlet property="playButton" destination="9GD-Ad-kUP" id="9e0-kI-ZPc"/>
                         <outlet property="sliderBar" destination="GU7-jt-WS4" id="Qk1-Do-Ugf"/>
                     </connections>
                 </viewController>
@@ -92,8 +93,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="download__1_" width="341" height="341"/>
         <image name="forward" width="170" height="170"/>
+        <image name="play" width="341" height="341"/>
         <image name="rewind" width="170" height="170"/>
     </resources>
 </document>
