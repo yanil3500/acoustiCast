@@ -20,7 +20,7 @@ class RSS: XMLParser {
     var rssFeed = ""
     
     static let shared = RSS()
-    
+    var descriptionCount = 0
     private func beginParsing() {
         print("Inside of beginParsing: \(self.rssFeed)")
         guard let url = URL(string: rssFeed) else {
@@ -59,6 +59,11 @@ extension RSS: XMLParserDelegate {
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        if elementName == "description" {
+            if self.descriptionCount == 0 {
+            self.episodeDictionary["podDescription"] = self.textNode
+            }
+        }
         if elementName == "item" {
         let episode = Episode(episode: self.episodeDictionary)
             self.episodes.append(episode)
@@ -78,8 +83,8 @@ extension RSS: XMLParserDelegate {
         if elementName == "pubDate" {
             self.episodeDictionary["pubDate"] = self.textNode
         }
-        
-        
+
+        print("Number of description: \(self.descriptionCount)")
         
         self.textNode = ""
         
@@ -95,6 +100,11 @@ extension RSS: XMLParserDelegate {
             self.textNode += data
         } else if self.element == "pubDate" {
             self.textNode += data
+        } else if self.element == "description"{
+            if self.descriptionCount == 0 {
+            self.textNode += data
+            }
+        self.descriptionCount += 1
         }
 
 
@@ -103,6 +113,8 @@ extension RSS: XMLParserDelegate {
     func parser(_ parser: XMLParser, foundCDATA CDATABlock: Data) {
         if let data = String(data: CDATABlock, encoding: .utf8)?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines){
             if self.element == "itunes:subtitle"{
+                self.textNode += data
+            } else if self.element == "description"{
                 self.textNode += data
             }
         }

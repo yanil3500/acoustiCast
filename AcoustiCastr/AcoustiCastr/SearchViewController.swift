@@ -13,11 +13,32 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var allPodcasts = [Podcast](){
+        didSet{
+            print("FirsCall: \(self.allPodcasts.count)")
+            self.collectionView.reloadData()
+        }
+    }
+    var searchTerm = [String]() {
+        didSet {
+            self.update()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.searchBar.delegate = self
+        
+    }
+    
+    func update(){
+        print("Inside of update:")
+        iTunes.shared.getPodcasts { (podcasts) in
+            if let pods = podcasts {
+                self.allPodcasts = pods
+            }
+        }
     }
     
 }
@@ -27,7 +48,15 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //TODO: return number of podcasts
-        return 3
+        if self.allPodcasts.count != 0 {
+            guard let firstPodcast = self.allPodcasts.first?.podcastFeed else { print("Failed to get episode");return -1 }
+            RSS.shared.rssFeed = firstPodcast
+            RSS.shared.getEpisodes(completion: { (episodes) in
+                print("Podcast Description: \(String(describing: episodes?.first?.podDescription))")
+            })
+            
+        }
+        return self.allPodcasts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -39,6 +68,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // Did select, do perform segue
+        print("I selected \(indexPath.row)")
     }
 }
 
@@ -52,15 +82,7 @@ extension SearchViewController: UISearchBarDelegate {
             let lastIndex = searchText.index(before: searchText.endIndex)
             searchBar.text = searchText.substring(to: lastIndex)
         }
-//        guard let searchedText = searchBar.text else { return; }
-//        //Populates table according to what user is searching for
-//        self.displayRepos = self.repos.filter({ (repo) -> Bool in
-//            repo.repoName.contains(searchedText)
-//        })
-//        
-//        if searchBar.text == "" {
-//            self.displayRepos = nil
-//        }
+
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -72,8 +94,10 @@ extension SearchViewController: UISearchBarDelegate {
         //Dismisses the keyboard from the view once user clicks search bar
         print("Stuff in search bar: \(String(describing: searchBar.text))")
         if let terms = searchBar.text?.lowercased().components(separatedBy: " ") {
-            print("Inside of let branch: number of search terms: \(terms)")
+            print("Inside of let branch: number of search terms: \(terms.count)")
             iTunes.shared.getSearchText(searchRequest: terms)
+            self.searchTerm = terms
+            print(iTunes.searchTerms)
         }
         self.searchBar.resignFirstResponder()
     }
