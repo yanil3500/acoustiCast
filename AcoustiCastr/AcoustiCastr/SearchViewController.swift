@@ -99,6 +99,10 @@ extension SearchViewController: UISearchBarDelegate {
             searchBar.text = searchText.substring(to: lastIndex)
         }
         
+        if searchText == "" {
+            self.allPodcasts.removeAll()
+            self.tableView.reloadData()
+        }
         
     }
     
