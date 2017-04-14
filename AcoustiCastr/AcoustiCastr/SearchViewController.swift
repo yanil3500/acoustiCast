@@ -76,13 +76,13 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         
         searchResultsCell.podcastAuthor?.text = self.allPodcasts[indexPath.row].artistName
         searchResultsCell.podcastName?.text = self.allPodcasts[indexPath.row].collectionName
-        searchResultsCell.podcastArt.image = self.allPodcasts[indexPath.row].podcastArt as? UIImage
+        searchResultsCell.podcastArt.image = self.allPodcasts[indexPath.row].podcastAlbumArt
         
         return searchResultsCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.prepare(for: DetailPodcastViewController, sender: nil)
+        self.performSegue(withIdentifier: DetailPodcastViewController.identifier, sender: nil)
     }
 
 
@@ -126,23 +126,21 @@ extension SearchViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
+        
         if segue.identifier == DetailPodcastViewController.identifier {
             //prepares podcast info.
             if let selectedIndex = self.tableView.indexPathForSelectedRow?.row {
                 let selectedPodcast = self.allPodcasts[selectedIndex]
+                guard let destinationController = segue.destination as? DetailPodcastViewController else { print("Failed to prepare segue");return}
+                guard let image = selectedPodcast.podcastAlbumArt else { print("Failed to get image"); return }
+                destinationController.podcastArt?.image = image
+                destinationController.podcastTitle.title = selectedPodcast.collectionName
                 //hands rss feed from selected podcast to our RSS singleton
                 RSS.shared.rssFeed = selectedPodcast.podcastFeed
-                guard let destinationController = segue.destination as? DetailPodcastViewController else { print("Failed to prepare segue");return}
-                destinationController.podcastArt.image = selectedPodcast.podcastArt as? UIImage
-                destinationController.podcastTitle.title = selectedPodcast.collectionName
                 RSS.shared.getEpisodes(completion: { (episodes) in
-                    guard let podEpisodes = episodes else { print("Failed to get episodes") ;return}
-                    guard let aPodDescription = podEpisodes.first?.podDescription else { print("Failed to get podcast description."); return }
-                    destinationController.podcastDescription = aPodDescription
-                    destinationController.episodes = podEpisodes
+                    guard let podcastEps = episodes else { print("failed to get episodes."); return }
+                    destinationController.episodes = podcastEps
                 })
-                
-                
             }
         }
     }

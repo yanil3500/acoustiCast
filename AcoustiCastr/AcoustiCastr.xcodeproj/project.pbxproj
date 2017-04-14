@@ -48,6 +48,8 @@
 		CDD2A40A1E9BEF3D00D1A3EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDF186EA1E9FFFFF0071C8DE /* SearchResultsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsCell.swift; sourceTree = "<group>"; };
 		CDF186EB1E9FFFFF0071C8DE /* SearchResultsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultsCell.xib; sourceTree = "<group>"; };
+		CDF186EE1EA04EB40071C8DE /* DetailPodcastViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailPodcastViewCell.swift; sourceTree = "<group>"; };
+		CDF186EF1EA04EB40071C8DE /* DetailPodcastViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailPodcastViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,8 @@
 				CDD2A4021E9BEF3D00D1A3EA /* Main.storyboard */,
 				A166622C1E9F11B900DCA924 /* PlayerViewController.storyboard */,
 				A16662291E9F119A00DCA924 /* DetailPodcastViewController.storyboard */,
+				CDF186EE1EA04EB40071C8DE /* DetailPodcastViewCell.swift */,
+				CDF186EF1EA04EB40071C8DE /* DetailPodcastViewCell.xib */,
 				CDD2A4051E9BEF3D00D1A3EA /* Assets.xcassets */,
 				CDD2A4071E9BEF3D00D1A3EA /* LaunchScreen.storyboard */,
 				CDF186EA1E9FFFFF0071C8DE /* SearchResultsCell.swift */,
@@ -201,6 +205,7 @@
 				CDD2A4061E9BEF3D00D1A3EA /* Assets.xcassets in Resources */,
 				CD8360111E9D8AD00041E900 /* podcast-one.mp3 in Resources */,
 				CDD2A4041E9BEF3D00D1A3EA /* Main.storyboard in Resources */,
+				CDF186F11EA04EB40071C8DE /* DetailPodcastViewCell.xib in Resources */,
 				A166622B1E9F119A00DCA924 /* DetailPodcastViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,6 +219,7 @@
 			files = (
 				A16662281E9F0E0200DCA924 /* DetailPodcastViewController.swift in Sources */,
 				CD076CF91E9BF4D400686520 /* iTunes.swift in Sources */,
+				CDF186F01EA04EB40071C8DE /* DetailPodcastViewCell.swift in Sources */,
 				CD076CF41E9BF22F00686520 /* Episode.swift in Sources */,
 				CD076CF71E9BF2E200686520 /* UIKitExtensions.swift in Sources */,
 				CDC7E7561E9E8D1F00DDE6AF /* FoundationExtensions.swift in Sources */,
