@@ -72,6 +72,7 @@ extension DetailPodcastViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: PlayerViewController.identifier, sender: nil)
+        self.episodeView.deselectRow(at: indexPath, animated: false)
     }
     
 }

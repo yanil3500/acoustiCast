@@ -15,11 +15,11 @@
             <rect key="frame" x="0.0" y="0.0" width="483" height="136"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8t5-P9-gfR" id="IOR-sU-d4i">
-                <rect key="frame" x="0.0" y="0.0" width="483" height="135.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="483" height="136"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Episode Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYb-cf-avx">
-                        <rect key="frame" x="113" y="8" width="370" height="121"/>
+                        <rect key="frame" x="113" y="8" width="350" height="121"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -63,8 +63,8 @@
                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="xI7-s3-Efc" firstAttribute="leading" secondItem="IOR-sU-d4i" secondAttribute="leading" constant="8" id="2Ew-RZ-tBG"/>
-                    <constraint firstAttribute="trailing" secondItem="kYb-cf-avx" secondAttribute="trailing" id="FBO-dX-aAH"/>
                     <constraint firstItem="xI7-s3-Efc" firstAttribute="top" secondItem="IOR-sU-d4i" secondAttribute="top" constant="8" id="FkU-G4-jax"/>
+                    <constraint firstAttribute="trailing" secondItem="kYb-cf-avx" secondAttribute="trailing" constant="20" id="SdZ-VS-Jxj"/>
                     <constraint firstAttribute="bottom" secondItem="xI7-s3-Efc" secondAttribute="bottom" constant="6.5" id="T9j-WJ-UoO"/>
                     <constraint firstItem="kYb-cf-avx" firstAttribute="top" secondItem="IOR-sU-d4i" secondAttribute="top" constant="8" id="XQf-0L-iYd"/>
                     <constraint firstAttribute="bottom" secondItem="kYb-cf-avx" secondAttribute="bottom" constant="6.5" id="aB8-NY-VBH"/>
