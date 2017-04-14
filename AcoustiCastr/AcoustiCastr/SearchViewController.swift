@@ -10,7 +10,7 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
-
+    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -84,8 +84,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: DetailPodcastViewController.identifier, sender: nil)
     }
-
-
+    
+    
 }
 
 
@@ -98,7 +98,7 @@ extension SearchViewController: UISearchBarDelegate {
             let lastIndex = searchText.index(before: searchText.endIndex)
             searchBar.text = searchText.substring(to: lastIndex)
         }
-
+        
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -126,15 +126,16 @@ extension SearchViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
-        
         if segue.identifier == DetailPodcastViewController.identifier {
             //prepares podcast info.
             if let selectedIndex = self.tableView.indexPathForSelectedRow?.row {
                 let selectedPodcast = self.allPodcasts[selectedIndex]
                 guard let destinationController = segue.destination as? DetailPodcastViewController else { print("Failed to prepare segue");return}
-                
+                let backItem = UIBarButtonItem()
+                backItem.title = "Back"
+                navigationItem.backBarButtonItem = backItem
                 destinationController.selectedPod = selectedPodcast
-
+                
             }
         }
     }

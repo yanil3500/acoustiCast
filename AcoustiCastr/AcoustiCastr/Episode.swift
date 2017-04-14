@@ -16,7 +16,7 @@ class Episode {
     var duration: String = ""
     var pubDate: String = ""
     
-    init (episode: [String : String]) {
+    init?(episode: [String : String]) {
         self.title = episode["title"]!
         if let summaryOfPod = episode["summary"]{
             self.summary = summaryOfPod
@@ -25,7 +25,13 @@ class Episode {
             self.audiolink = link
         }
         self.pubDate = episode["pubDate"]!
-        self.duration = episode["duration"]!
+        
+        // If duration is nil, then dont generate the episode, just return nil
+        if let duration = episode["duration"] {
+            self.duration = duration
+        } else {
+            return nil
+        }
         if let podDescrip = episode["podDescription"] {
             self.podDescription = podDescrip
         } else {

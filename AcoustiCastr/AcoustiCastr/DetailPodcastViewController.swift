@@ -20,8 +20,7 @@ class DetailPodcastViewController: UIViewController {
     
     var rowHeight = 50
     var episodes = [Episode]()
-    
-    //TODO: Add a table view for podcast
+    var interactor = Interactor()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +29,7 @@ class DetailPodcastViewController: UIViewController {
         print("Inside of podcastDetailViewController: ")
         self.podcastArt.image = selectedPod.podcastAlbumArt
         self.podcastTitle.title = selectedPod.collectionName
-
+        
         
         //Register nib
         let episodeNib = UINib(nibName: "PodcastDetailViewCell", bundle: Bundle.main)
@@ -47,13 +46,7 @@ class DetailPodcastViewController: UIViewController {
             self.episodeView.reloadData()
         })
     }
-
-
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // send your episode to playerVC
-//        d
-//    }
-
+    
 }
 
 
@@ -73,19 +66,30 @@ extension DetailPodcastViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: PlayerViewController.identifier, sender: nil)
     }
-
+    
 }
 
 
 extension DetailPodcastViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == PlayerViewController.identifier {
-        if let selectedIndex = self.episodeView.indexPathForSelectedRow?.row {
-            let selectedEpisode = self.episodes[selectedIndex]
-            guard let destinationController = segue.destination as? PlayerViewController else { print("Failed to prepare segue"); return }
-            destinationController.episode = selectedEpisode
-            destinationController.selectedPodcast = self.selectedPod
+            if let selectedIndex = self.episodeView.indexPathForSelectedRow?.row {
+                let selectedEpisode = self.episodes[selectedIndex]
+                guard let destinationController = segue.destination as? PlayerViewController else { print("Failed to prepare segue"); return }
+                destinationController.transitioningDelegate = self
+                destinationController.interactor = interactor
+                destinationController.episode = selectedEpisode
+                destinationController.selectedPodcast = self.selectedPod
+            }
         }
-        }
+    }
+}
+
+extension DetailPodcastViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return DismissAnimator()
+    }
+    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return interactor.hasStarted ? interactor : nil
     }
 }

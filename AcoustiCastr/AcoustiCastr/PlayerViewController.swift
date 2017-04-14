@@ -17,6 +17,7 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var playButton: UIButton!
     
+    @IBOutlet var panGesture: UIPanGestureRecognizer!
     var player: AVPlayer!
     var selectedPodcast : Podcast!
     var playerItem: AVPlayerItem?
@@ -24,6 +25,47 @@ class PlayerViewController: UIViewController {
     var podcastEpUrl : String = ""
     var updater : CADisplayLink! = nil
     var timer : Timer?
+    var interactor: Interactor? = nil
+    
+    
+    @IBAction func handlePanToDismissGesture(_ sender: UIPanGestureRecognizer) {
+        let percentThreshold: Float = 0.3
+        // conver y=position to downward pull progress
+        let translation = sender.translation(in: view)
+        let verticalMovement = translation.y / view.bounds.height
+        let downwardMovement = fmaxf(Float(verticalMovement), 0.0)
+        let downwardMovementPercent = fminf(downwardMovement, 1.0)
+        
+        let progress = Float(downwardMovementPercent)
+        
+        guard let interactor = interactor else {
+            return
+        }
+        
+        switch sender.state {
+        case .began:
+            interactor.hasStarted = true
+            dismiss(animated: true, completion: { 
+                self.player.rate = 0
+                self.timer?.invalidate()
+            })
+            break
+        case .changed:
+            interactor.shouldFinish = progress > percentThreshold
+            interactor.update(CGFloat(progress))
+            break
+        case .cancelled:
+            interactor.hasStarted = false
+            interactor.cancel()
+            break
+        case .ended:
+            interactor.hasStarted = false
+            interactor.shouldFinish ? interactor.finish() : interactor.cancel()
+            break
+        default:
+            break
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,3 +132,4 @@ class PlayerViewController: UIViewController {
         secondsToHoursMinutesSeconds(seconds: Int(player.currentPlayTime()), withLabel: self.startTimeLabel)
     }
 }
+
