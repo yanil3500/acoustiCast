@@ -112,6 +112,11 @@ extension SearchViewController: UISearchBarDelegate {
         self.searchBar.resignFirstResponder()
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print("Inside scrollViewDidScroll")
+        self.searchBar.resignFirstResponder()
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         //Dismisses the keyboard from the view once user clicks search bar
         print("Stuff in search bar: \(String(describing: searchBar.text))")
