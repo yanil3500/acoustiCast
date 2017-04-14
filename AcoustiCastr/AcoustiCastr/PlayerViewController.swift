@@ -13,12 +13,16 @@ import AVFoundation
 class PlayerViewController: UIViewController {
     @IBOutlet weak var artworkImage: UIImageView!
     @IBOutlet weak var sliderBar: UISlider!
+    @IBOutlet weak var endTimeLabel: UILabel!
+    @IBOutlet weak var startTimeLabel: UILabel!
+    @IBOutlet weak var playButton: UIButton!
     
-    var player: AVPlayer?
+    var player: AVPlayer!
     var playerItem: AVPlayerItem?
     var examplePodcast : Episode?
     var podcastEpUrl : String = ""
     var updater : CADisplayLink! = nil
+    var timer : Timer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,62 +43,66 @@ class PlayerViewController: UIViewController {
                 self.podcastEpUrl = urls
             })
         })
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        
         guard let url = URL(string: "https://traffic.libsyn.com/secure/wtfpod/WTF_-_EPISODE_801_ANNE_HATHAWAY.mp3?dest-id=14434" ) else { print("failed to get episode link") ;return}
         let playerItem: AVPlayerItem = AVPlayerItem(url: url)
         player = AVPlayer(playerItem: playerItem)
-
         
-        let duration : CMTime = playerItem.asset.duration
-        let seconds : Float64 = CMTimeGetSeconds(duration)
-
+        
+        self.sliderBar.value = 0
         self.sliderBar.minimumValue = 0
-        self.sliderBar.maximumValue = Float(seconds)
+        self.sliderBar.maximumValue = 1
         self.sliderBar.isContinuous = true
         self.sliderBar.addTarget(self, action: #selector(PlayerViewController.sliderChanges(_:)), for: .valueChanged)
         
         
-
+        secondsToHoursMinutesSeconds(seconds: Int(player.totalDuration()), withLabel: self.endTimeLabel)
+        secondsToHoursMinutesSeconds(seconds: 0, withLabel: self.startTimeLabel)
+        
     }
     
-    
+    func secondsToHoursMinutesSeconds(seconds: Int, withLabel label: UILabel) {
+        let secs = (seconds % 3600) % 60
+        let mins = (seconds % 3600) / 60
+        let hrs = seconds / 3600
+        label.text = String(format: "%2d:%02d:%02d", hrs, mins, secs)
+    }
+
     
     func sliderChanges(_ sender: UISlider) {
-        print("Inside of playbackSliderChanges")
-        let secondsFromSlider : Int64 = Int64(sender.value)
-        let targetTime:CMTime = CMTimeMake(secondsFromSlider, 1)
+
+        let targetTime = CMTimeMakeWithSeconds(Float64(sliderBar.value * Float(player.totalDuration())), player.currentTime().timescale)
         player!.seek(to: targetTime)
-        
-        if player!.rate == 0
-        {
-            player?.play()
-        }
+        secondsToHoursMinutesSeconds(seconds: Int(player.currentPlayTime()), withLabel: self.startTimeLabel)
     }
     
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     @IBAction func rewind(_ sender: Any) {
-        
+        // back 15 secs
+        let sec = Float64(sliderBar.value * Float(player.totalDuration())) - 15
+        let targetTime = CMTimeMakeWithSeconds(sec, player.currentTime().timescale)
+        player!.seek(to: targetTime)
     }
     @IBAction func fastForward(_ sender: Any) {
-        
+        let sec = Float64(sliderBar.value * Float(player.totalDuration())) + 15
+        let targetTime = CMTimeMakeWithSeconds(sec, player.currentTime().timescale)
+        player!.seek(to: targetTime)
     }
+    
     @IBAction func playButton(_ sender: Any) {
-        if player?.rate == 0 {
+        if !player.isPlaying() {
             player!.play()
-            (sender as! UIButton).setTitle("Pause", for: UIControlState.normal)
+            playButton.setImage(UIImage(named: "pause"), for: .normal)
+            timer = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(updateSlider), userInfo: nil, repeats: true)
         } else {
             player!.pause()
-            (sender as! UIButton).setTitle("Play", for: UIControlState.normal)
+            playButton.setImage(UIImage(named: "play"), for: .normal)
+            timer?.invalidate()
         }
     }
     
-
+    func updateSlider() {
+        sliderBar.value = Float(player.currentProgress())
+        secondsToHoursMinutesSeconds(seconds: Int(player.currentPlayTime()), withLabel: self.startTimeLabel)
+    }
 }

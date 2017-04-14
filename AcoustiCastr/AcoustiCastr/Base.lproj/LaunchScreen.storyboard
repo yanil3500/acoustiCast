@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,29 +18,34 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bIF-Ye-2tQ">
-                                <rect key="frame" x="67" y="228" width="240" height="128"/>
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="0zu-wm-nkh"/>
-                                </constraints>
-                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mic_logo" translatesAutoresizingMaskIntoConstraints="NO" id="2nl-JW-Jni">
+                                <rect key="frame" x="122" y="283" width="170" height="170"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AcoustiCast" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woW-VN-4fb">
+                                <rect key="frame" x="111" y="459" width="192" height="44"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="37"/>
+                                <color key="textColor" red="0.9367908331" green="0.94606598980000001" blue="0.94606598980000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="bIF-Ye-2tQ" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="67" id="LGL-lp-Ffs"/>
-                            <constraint firstAttribute="trailing" secondItem="bIF-Ye-2tQ" secondAttribute="trailing" constant="68" id="PWO-FT-7Ot"/>
-                            <constraint firstItem="bIF-Ye-2tQ" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="208" id="vIX-cG-ioa"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="bIF-Ye-2tQ" secondAttribute="bottom" constant="311" id="wXB-1P-8bh"/>
+                            <constraint firstItem="woW-VN-4fb" firstAttribute="top" secondItem="2nl-JW-Jni" secondAttribute="bottom" constant="6" id="6MY-Cl-mbG"/>
+                            <constraint firstItem="woW-VN-4fb" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="6Og-mz-Fpm"/>
+                            <constraint firstItem="2nl-JW-Jni" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="SqB-gv-mrO"/>
+                            <constraint firstItem="2nl-JW-Jni" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="seX-V3-YwF"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Mic_logo" width="170" height="170"/>
+    </resources>
 </document>
