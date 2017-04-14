@@ -21,17 +21,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Ex: Genre" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BQg-Pr-Hef">
+                            <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Search Podcasts" translatesAutoresizingMaskIntoConstraints="NO" id="BQg-Pr-Hef">
                                 <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9HR-vm-9hz">
                                 <rect key="frame" x="0.0" y="108" width="375" height="559"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="kJ5-R9-nx1">
                                 <rect key="frame" x="169" y="315" width="37" height="37"/>
-                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -47,7 +50,7 @@
                             <constraint firstItem="VAd-Vn-pUF" firstAttribute="top" secondItem="9HR-vm-9hz" secondAttribute="bottom" id="qIW-eO-LiE"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="AcoustiCastr" id="wQT-8w-we1"/>
+                    <navigationItem key="navigationItem" title="AcoustiCast" id="wQT-8w-we1"/>
                     <connections>
                         <outlet property="activityIndicator" destination="kJ5-R9-nx1" id="VwG-zY-yNC"/>
                         <outlet property="searchBar" destination="BQg-Pr-Hef" id="fcY-XO-Qb2"/>

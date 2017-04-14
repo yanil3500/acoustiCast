@@ -132,7 +132,7 @@ extension SearchViewController {
                 let selectedPodcast = self.allPodcasts[selectedIndex]
                 guard let destinationController = segue.destination as? DetailPodcastViewController else { print("Failed to prepare segue");return}
                 let backItem = UIBarButtonItem()
-                backItem.title = "Back"
+                backItem.title = " "
                 navigationItem.backBarButtonItem = backItem
                 destinationController.selectedPod = selectedPodcast
                 
