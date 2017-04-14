@@ -61,10 +61,11 @@ extension DetailPodcastViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var episodeDate = self.episodes[indexPath.row].pubDate.components(separatedBy: " ").dropFirst().dropLast().dropLast().dropLast().dropLast()
+        let episodeDate = self.episodes[indexPath.row].pubDate.components(separatedBy: " ").dropLast().dropLast().dropLast().dropFirst()
         let cell = tableView.dequeueReusableCell(withIdentifier: "PodcastDetailViewCell", for: indexPath) as! PodcastDetailViewCell
-//        print("Episode Date: \(ep)")
         cell.nameLabel.text = self.episodes[indexPath.row].title
+        cell.day.text = episodeDate.first
+        cell.month.text = episodeDate.last
         
         return cell
     }
