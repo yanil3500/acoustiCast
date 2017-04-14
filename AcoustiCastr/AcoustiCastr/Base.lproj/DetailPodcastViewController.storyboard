@@ -32,18 +32,19 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="nTI-G9-myA" firstAttribute="centerY" secondItem="S4s-pz-ddY" secondAttribute="centerY" id="TRm-dr-qkW"/>
                                     <constraint firstItem="nTI-G9-myA" firstAttribute="centerX" secondItem="S4s-pz-ddY" secondAttribute="centerX" id="gAg-cc-Asb"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="imV-ff-X6W">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="imV-ff-X6W">
                                 <rect key="frame" x="0.0" y="351" width="375" height="316"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="JyU-u5-oOt" firstAttribute="top" secondItem="S4s-pz-ddY" secondAttribute="bottom" constant="324" id="ChN-Cl-Yhg"/>
                             <constraint firstItem="JyU-u5-oOt" firstAttribute="top" secondItem="imV-ff-X6W" secondAttribute="bottom" id="Vmq-3d-pjE"/>

@@ -29,7 +29,7 @@ class PlayerViewController: UIViewController {
     
     
     @IBAction func handlePanToDismissGesture(_ sender: UIPanGestureRecognizer) {
-        let percentThreshold: Float = 0.3
+        let percentThreshold: Float = 0.5
         // conver y=position to downward pull progress
         let translation = sender.translation(in: view)
         let verticalMovement = translation.y / view.bounds.height

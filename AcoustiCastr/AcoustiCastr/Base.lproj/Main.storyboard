@@ -38,6 +38,7 @@
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9HR-vm-9hz" firstAttribute="top" secondItem="BQg-Pr-Hef" secondAttribute="bottom" id="FBY-KD-O14"/>
                             <constraint firstItem="BQg-Pr-Hef" firstAttribute="top" secondItem="adi-eY-pJA" secondAttribute="bottom" id="MWe-Di-3l3"/>
