@@ -32,7 +32,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="nTI-G9-myA" firstAttribute="centerY" secondItem="S4s-pz-ddY" secondAttribute="centerY" id="TRm-dr-qkW"/>
                                     <constraint firstItem="nTI-G9-myA" firstAttribute="centerX" secondItem="S4s-pz-ddY" secondAttribute="centerX" id="gAg-cc-Asb"/>
@@ -63,7 +63,7 @@
                         <outlet property="episodeView" destination="imV-ff-X6W" id="mEm-38-3O6"/>
                         <outlet property="podcastArt" destination="nTI-G9-myA" id="XSV-FQ-kSV"/>
                         <outlet property="podcastTitle" destination="Ki0-Zg-mVR" id="oLQ-OX-66P"/>
-                        <segue destination="ami-3K-opo" kind="presentation" id="YEb-M2-LHY"/>
+                        <segue destination="ami-3K-opo" kind="presentation" identifier="PlayerViewController" id="YEb-M2-LHY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ufl-aS-Ghj" userLabel="First Responder" sceneMemberID="firstResponder"/>

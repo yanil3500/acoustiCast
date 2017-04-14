@@ -132,15 +132,9 @@ extension SearchViewController {
             if let selectedIndex = self.tableView.indexPathForSelectedRow?.row {
                 let selectedPodcast = self.allPodcasts[selectedIndex]
                 guard let destinationController = segue.destination as? DetailPodcastViewController else { print("Failed to prepare segue");return}
-                guard let image = selectedPodcast.podcastAlbumArt else { print("Failed to get image"); return }
-                destinationController.podcastArt?.image = image
-                destinationController.podcastTitle.title = selectedPodcast.collectionName
-                //hands rss feed from selected podcast to our RSS singleton
-                RSS.shared.rssFeed = selectedPodcast.podcastFeed
-                RSS.shared.getEpisodes(completion: { (episodes) in
-                    guard let podcastEps = episodes else { print("failed to get episodes."); return }
-                    destinationController.episodes = podcastEps
-                })
+                
+                destinationController.selectedPod = selectedPodcast
+
             }
         }
     }

@@ -13,6 +13,9 @@ class DetailPodcastViewController: UIViewController {
     @IBOutlet weak var podcastArt: UIImageView!
     @IBOutlet weak var episodeView: UITableView!
     @IBOutlet weak var podcastTitle: UINavigationItem!
+    
+    var selectedPod: Podcast!
+    
     var podcastDescription: String = ""
     
     var rowHeight = 50
@@ -25,21 +28,31 @@ class DetailPodcastViewController: UIViewController {
         self.episodeView.delegate = self
         self.episodeView.dataSource = self
         print("Inside of podcastDetailViewController: ")
-        
+        self.podcastArt.image = selectedPod.podcastAlbumArt
+        self.podcastTitle.title = selectedPod.collectionName
+
         
         //Register nib
-        let episodeNib = UINib(nibName: DetailPodcastViewCell.identifier, bundle: nil)
-        self.episodeView.register(episodeNib, forCellReuseIdentifier: DetailPodcastViewCell.identifier)
+        let episodeNib = UINib(nibName: "PodcastDetailViewCell", bundle: Bundle.main)
+        self.episodeView.register(episodeNib, forCellReuseIdentifier: "PodcastDetailViewCell")
         self.episodeView.estimatedRowHeight = CGFloat(rowHeight)
         
         self.episodeView.rowHeight = UITableViewAutomaticDimension
+        
+        //hands rss feed from selected podcast to our RSS singleton
+        RSS.shared.rssFeed = selectedPod.podcastFeed
+        RSS.shared.getEpisodes(completion: { (episodes) in
+            guard let podcastEps = episodes else { print("failed to get episodes."); return }
+            self.episodes = podcastEps
+            self.episodeView.reloadData()
+        })
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // send your episode to playerVC
+//        d
+//    }
 
 }
 
@@ -50,12 +63,29 @@ extension DetailPodcastViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let episodeCell = tableView.dequeueReusableCell(withIdentifier: DetailPodcastViewCell.identifier, for: indexPath) as! DetailPodcastViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PodcastDetailViewCell", for: indexPath) as! PodcastDetailViewCell
         
-        episodeCell.episodeName.text = self.episodes[indexPath.row].title
-        episodeCell.episodelink = self.episodes[indexPath.row].audiolink
-        return episodeCell
+        cell.nameLabel.text = self.episodes[indexPath.row].title
+        
+        return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: PlayerViewController.identifier, sender: nil)
+    }
 
+}
+
+
+extension DetailPodcastViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == PlayerViewController.identifier {
+        if let selectedIndex = self.episodeView.indexPathForSelectedRow?.row {
+            let selectedEpisode = self.episodes[selectedIndex]
+            guard let destinationController = segue.destination as? PlayerViewController else { print("Failed to prepare segue"); return }
+            destinationController.episode = selectedEpisode
+            destinationController.selectedPodcast = self.selectedPod
+        }
+        }
+    }
 }

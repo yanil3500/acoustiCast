@@ -56,7 +56,7 @@ extension UIImage {
         var podcastsWithImages = [Podcast]()
         OperationQueue().addOperation {
             for pod in podcasts {
-                guard let url = URL(string: pod.podcastArtUrl as! String) else { completion(nil); return }
+                guard let url = URL(string: pod.podcastArtUrl ) else { completion(nil); return }
                 //Optional try, so that if Data(contentsOf:) fails, nil gets assigned into data
                 if let data = try? Data(contentsOf: url) {
                     guard let image = UIImage(data: data) else { fatalError("Image not found")}
