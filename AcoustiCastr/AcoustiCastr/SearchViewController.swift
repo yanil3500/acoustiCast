@@ -29,11 +29,17 @@ class SearchViewController: UIViewController {
         }
     }
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.searchBar.delegate = self
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor.black
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        
         
         
         //Register nib
@@ -144,6 +150,7 @@ extension SearchViewController {
                 guard let destinationController = segue.destination as? DetailPodcastViewController else { print("Failed to prepare segue");return}
                 let backItem = UIBarButtonItem()
                 backItem.title = " "
+                
                 navigationItem.backBarButtonItem = backItem
                 destinationController.selectedPod = selectedPodcast
                 
