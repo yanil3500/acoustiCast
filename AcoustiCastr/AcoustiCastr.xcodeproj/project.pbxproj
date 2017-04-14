@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A128D6ED1EA0223B0071BAA0 /* AVFoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128D6EC1EA0223B0071BAA0 /* AVFoundationExtensions.swift */; };
+		A128D6EF1EA06C650071BAA0 /* DismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128D6EE1EA06C650071BAA0 /* DismissAnimator.swift */; };
+		A128D6F11EA070800071BAA0 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128D6F01EA070800071BAA0 /* Interactor.swift */; };
 		A16662261E9F0CB800DCA924 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16662251E9F0CB800DCA924 /* PlayerViewController.swift */; };
 		A16662281E9F0E0200DCA924 /* DetailPodcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16662271E9F0E0200DCA924 /* DetailPodcastViewController.swift */; };
 		A166622B1E9F119A00DCA924 /* DetailPodcastViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A16662291E9F119A00DCA924 /* DetailPodcastViewController.storyboard */; };
@@ -32,6 +34,8 @@
 
 /* Begin PBXFileReference section */
 		A128D6EC1EA0223B0071BAA0 /* AVFoundationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVFoundationExtensions.swift; sourceTree = "<group>"; };
+		A128D6EE1EA06C650071BAA0 /* DismissAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissAnimator.swift; sourceTree = "<group>"; };
+		A128D6F01EA070800071BAA0 /* Interactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		A16662251E9F0CB800DCA924 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		A16662271E9F0E0200DCA924 /* DetailPodcastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailPodcastViewController.swift; sourceTree = "<group>"; };
 		A166622A1E9F119A00DCA924 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DetailPodcastViewController.storyboard; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 				CDD2A4121E9BEFAA00D1A3EA /* controllers */,
 				CDD2A4111E9BEF9E00D1A3EA /* model */,
 				CDD2A3FE1E9BEF3D00D1A3EA /* AppDelegate.swift */,
+				A128D6EE1EA06C650071BAA0 /* DismissAnimator.swift */,
+				A128D6F01EA070800071BAA0 /* Interactor.swift */,
 				CDD2A4101E9BEF9500D1A3EA /* views */,
 				CDD2A40A1E9BEF3D00D1A3EA /* Info.plist */,
 			);
@@ -234,7 +240,9 @@
 				A16662261E9F0CB800DCA924 /* PlayerViewController.swift in Sources */,
 				CDD2A3FF1E9BEF3D00D1A3EA /* AppDelegate.swift in Sources */,
 				CDC7E7581E9E8FDC00DDE6AF /* SearchViewController.swift in Sources */,
+				A128D6F11EA070800071BAA0 /* Interactor.swift in Sources */,
 				CD076CF21E9BF21F00686520 /* Podcast.swift in Sources */,
+				A128D6EF1EA06C650071BAA0 /* DismissAnimator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

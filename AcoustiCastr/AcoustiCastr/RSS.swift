@@ -67,8 +67,9 @@ extension RSS: XMLParserDelegate {
             }
         }
         if elementName == "item" {
-        let episode = Episode(episode: self.episodeDictionary)
-            self.episodes.append(episode)
+            if let episode = Episode(episode: self.episodeDictionary) {
+                self.episodes.append(episode)
+            }
         }
         
         if elementName == "title" {
