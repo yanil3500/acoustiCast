@@ -11,7 +11,8 @@ import UIKit
 class PodcastDetailViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var linkButton: UIButton!
+    @IBOutlet weak var day: UILabel!
+    @IBOutlet weak var month: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
