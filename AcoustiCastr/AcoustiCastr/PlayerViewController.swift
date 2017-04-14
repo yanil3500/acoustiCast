@@ -29,9 +29,9 @@ class PlayerViewController: UIViewController {
         iTunes.shared.getSearchText(searchRequest: ["wtf"])
         iTunes.shared.getPodcasts(completion: { (podcasts) in
             guard let pod = podcasts?.first else { print("Failure to get podcast"); return }
-            UIImage.fetchImageWith(pod.podcastArt as! String, callback: { (image) in
+            UIImage.fetchImageWith(pod.podcastArtUrl as! String, callback: { (image) in
                 guard let podArt = image else { print("Failed to get image");return }
-                pod.podcastArt = podArt
+                pod.podcastAlbumArt = podArt
                 self.artworkImage.image = podArt
             })
             RSS.shared.rssFeed = pod.podcastFeed

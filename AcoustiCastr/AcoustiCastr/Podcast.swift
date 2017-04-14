@@ -13,7 +13,8 @@ class Podcast {
     var collectionName : String
     var genre : String
     var podcastFeed : String
-    var podcastArt : Any?
+    var podcastArtUrl : String
+    var podcastAlbumArt : UIImage?
     
     init(json: [String: Any] ) {
             self.artistName = json["artistName"] as! String
@@ -23,7 +24,7 @@ class Podcast {
             self.collectionName = ""
         }
         self.genre = json["primaryGenreName"] as! String
-        self.podcastFeed = "https:\((json["feedUrl"] as! String).components(separatedBy: ":").dropFirst().joined())"
-        self.podcastArt = json["artworkUrl600"] as! String
+        self.podcastFeed = json["feedUrl"] as! String
+        self.podcastArtUrl = json["artworkUrl600"] as! String
     }
 }

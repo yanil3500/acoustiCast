@@ -47,6 +47,7 @@ class RSS: XMLParser {
         returnToMain(results: self.episodes)
     }
     
+    
 }
 //MARK: RSS conforms to XMLParserDelegate
 extension RSS: XMLParserDelegate {
@@ -62,6 +63,7 @@ extension RSS: XMLParserDelegate {
         if elementName == "description" {
             if self.descriptionCount == 0 {
             self.episodeDictionary["podDescription"] = self.textNode
+                print("Inside of didEndElement: \(self.textNode)")
             }
         }
         if elementName == "item" {
@@ -120,6 +122,7 @@ extension RSS: XMLParserDelegate {
     }
     
     func parserDidEndDocument(_ parser: XMLParser){
+        
     }
     
 

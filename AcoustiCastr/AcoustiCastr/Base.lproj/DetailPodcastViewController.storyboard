@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Podcast Title-->
         <scene sceneID="Y0s-E3-NT2">
             <objects>
                 <viewController id="vkM-FH-p9e" customClass="DetailPodcastViewController" customModule="AcoustiCastr" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,17 +20,55 @@
                     <view key="view" contentMode="scaleToFill" id="YMx-JR-dzM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S4s-pz-ddY">
+                                <rect key="frame" x="0.0" y="64" width="375" height="279"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nTI-G9-myA">
+                                        <rect key="frame" x="62" y="14.5" width="250" height="250"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="9IQ-PE-dPE"/>
+                                            <constraint firstAttribute="width" constant="250" id="9g0-qH-duE"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="nTI-G9-myA" firstAttribute="centerY" secondItem="S4s-pz-ddY" secondAttribute="centerY" id="TRm-dr-qkW"/>
+                                    <constraint firstItem="nTI-G9-myA" firstAttribute="centerX" secondItem="S4s-pz-ddY" secondAttribute="centerX" id="gAg-cc-Asb"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="imV-ff-X6W">
+                                <rect key="frame" x="0.0" y="351" width="375" height="316"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JyU-u5-oOt" firstAttribute="top" secondItem="S4s-pz-ddY" secondAttribute="bottom" constant="324" id="ChN-Cl-Yhg"/>
+                            <constraint firstItem="JyU-u5-oOt" firstAttribute="top" secondItem="imV-ff-X6W" secondAttribute="bottom" id="Vmq-3d-pjE"/>
+                            <constraint firstAttribute="trailing" secondItem="S4s-pz-ddY" secondAttribute="trailing" id="azt-U2-m9f"/>
+                            <constraint firstItem="S4s-pz-ddY" firstAttribute="leading" secondItem="YMx-JR-dzM" secondAttribute="leading" id="kYJ-oK-RBX"/>
+                            <constraint firstItem="imV-ff-X6W" firstAttribute="top" secondItem="S4s-pz-ddY" secondAttribute="bottom" constant="8" id="mXz-qt-6Eo"/>
+                            <constraint firstAttribute="trailing" secondItem="imV-ff-X6W" secondAttribute="trailing" id="q52-MA-Mj9"/>
+                            <constraint firstItem="imV-ff-X6W" firstAttribute="leading" secondItem="YMx-JR-dzM" secondAttribute="leading" id="sWv-hg-yuY"/>
+                            <constraint firstItem="S4s-pz-ddY" firstAttribute="top" secondItem="8kp-y0-zrZ" secondAttribute="bottom" id="wYk-TN-wXl"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="OHP-7b-FaQ"/>
+                    <navigationItem key="navigationItem" title="Podcast Title" id="Ki0-Zg-mVR">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="gP1-9g-vCt"/>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="episodeView" destination="imV-ff-X6W" id="mEm-38-3O6"/>
+                        <outlet property="podcastArt" destination="nTI-G9-myA" id="XSV-FQ-kSV"/>
+                        <outlet property="podcastTitle" destination="Ki0-Zg-mVR" id="oLQ-OX-66P"/>
                         <segue destination="ami-3K-opo" kind="presentation" id="YEb-M2-LHY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ufl-aS-Ghj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2822" y="740"/>
+            <point key="canvasLocation" x="2821.5999999999999" y="739.88005997001505"/>
         </scene>
         <!--UIViewController-WBT-vs-Fzn-->
         <scene sceneID="4Ey-oT-Xyg">
