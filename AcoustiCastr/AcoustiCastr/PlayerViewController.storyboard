@@ -80,6 +80,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="tQv-3G-gSs" firstAttribute="top" secondItem="YSe-BD-3e4" secondAttribute="bottom" constant="50" id="5Vu-nX-22r"/>
                             <constraint firstItem="9GD-Ad-kUP" firstAttribute="top" secondItem="GU7-jt-WS4" secondAttribute="bottom" constant="20" id="7Dw-C5-TNk"/>
@@ -99,6 +100,9 @@
                             <constraint firstAttribute="trailing" secondItem="GU7-jt-WS4" secondAttribute="trailing" constant="10" id="xnG-no-FhB"/>
                             <constraint firstAttribute="trailing" secondItem="oWy-5m-LGm" secondAttribute="trailing" constant="60" id="zKL-F8-V5f"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Vti-PJ-eHk" appends="YES" id="oKc-YB-aXA"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="artworkImage" destination="pjV-0W-dFD" id="ccZ-K3-ywK"/>
@@ -109,6 +113,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YM1-C3-8vp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Vti-PJ-eHk">
+                    <connections>
+                        <action selector="handlePanToDismissGesture:" destination="WBT-vs-Fzn" id="aim-ca-hBZ"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3333.3333333333335" y="727.17391304347836"/>
         </scene>
