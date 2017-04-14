@@ -99,6 +99,16 @@ extension SearchViewController: UISearchBarDelegate {
             searchBar.text = searchText.substring(to: lastIndex)
         }
         
+        if searchText == "" {
+            self.allPodcasts.removeAll()
+            self.tableView.reloadData()
+        }
+        
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print("Inside of scrollViewDidScroll")
+        self.searchBar.resignFirstResponder()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -118,6 +128,7 @@ extension SearchViewController: UISearchBarDelegate {
         self.activityIndicator.startAnimating()
         self.searchBar.resignFirstResponder()
     }
+    
 }
 
 //MARK: Extension for segue preparation

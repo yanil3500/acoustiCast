@@ -16,7 +16,11 @@ class DetailPodcastViewController: UIViewController {
     
     var selectedPod: Podcast!
     
-    var podcastDescription: String = ""
+    var podcastDescription: String? {
+        didSet {
+            self.podcastDescription = (self.episodes.first?.summary)!
+        }
+    }
     
     var rowHeight = 50
     var episodes = [Episode]()
@@ -46,7 +50,7 @@ class DetailPodcastViewController: UIViewController {
             self.episodeView.reloadData()
         })
     }
-    
+
 }
 
 
@@ -56,9 +60,12 @@ extension DetailPodcastViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PodcastDetailViewCell", for: indexPath) as! PodcastDetailViewCell
         
+        let episodeDate = self.episodes[indexPath.row].pubDate.components(separatedBy: " ").dropLast().dropLast().dropLast().dropFirst()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PodcastDetailViewCell", for: indexPath) as! PodcastDetailViewCell
         cell.nameLabel.text = self.episodes[indexPath.row].title
+        cell.day.text = episodeDate.first
+        cell.month.text = episodeDate.last
         
         return cell
     }
