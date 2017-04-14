@@ -17,6 +17,7 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var playButton: UIButton!
     
+    @IBOutlet weak var episodeName: UILabel!
     @IBOutlet var panGesture: UIPanGestureRecognizer!
     var player: AVPlayer!
     var selectedPodcast : Podcast!
@@ -79,7 +80,7 @@ class PlayerViewController: UIViewController {
         self.sliderBar.maximumValue = 1
         self.sliderBar.isContinuous = true
         self.sliderBar.addTarget(self, action: #selector(PlayerViewController.sliderChanges(_:)), for: .valueChanged)
-        
+        self.episodeName.text = self.episode.title
         self.artworkImage.image = self.selectedPodcast.podcastAlbumArt
 
         secondsToHoursMinutesSeconds(seconds: Int(player.totalDuration()), withLabel: self.endTimeLabel)

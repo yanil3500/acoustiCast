@@ -25,7 +25,7 @@
                                 <rect key="frame" x="8" y="527" width="398" height="31"/>
                             </slider>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9GD-Ad-kUP">
-                                <rect key="frame" x="157.66666666666669" y="577" width="100.00000000000006" height="100"/>
+                                <rect key="frame" x="157" y="577" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="CUW-SO-4mH"/>
                                     <constraint firstAttribute="width" constant="100" id="RT1-45-hBO"/>
@@ -78,6 +78,15 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Episode Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76a-LM-g71">
+                                <rect key="frame" x="30" y="466" width="353" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="77J-QW-TMC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -89,9 +98,13 @@
                             <constraint firstItem="9GD-Ad-kUP" firstAttribute="centerX" secondItem="GU7-jt-WS4" secondAttribute="centerX" id="Fem-vv-mRy"/>
                             <constraint firstItem="YSe-BD-3e4" firstAttribute="leading" secondItem="Zdo-Vs-QBY" secondAttribute="leading" constant="60" id="G2e-YS-SZ4"/>
                             <constraint firstAttribute="trailing" secondItem="pjV-0W-dFD" secondAttribute="trailing" id="GrI-Vn-5Ek"/>
+                            <constraint firstItem="76a-LM-g71" firstAttribute="centerX" secondItem="Zdo-Vs-QBY" secondAttribute="centerX" id="IBH-DS-Rk8"/>
+                            <constraint firstItem="76a-LM-g71" firstAttribute="leading" secondItem="Zdo-Vs-QBY" secondAttribute="leading" constant="30" id="JML-mE-bV0"/>
                             <constraint firstItem="pjV-0W-dFD" firstAttribute="top" secondItem="WCm-QQ-Ype" secondAttribute="bottom" id="JOd-b1-leY"/>
                             <constraint firstItem="tQv-3G-gSs" firstAttribute="top" secondItem="oWy-5m-LGm" secondAttribute="bottom" constant="50" id="MDw-Ab-4lM"/>
+                            <constraint firstItem="GU7-jt-WS4" firstAttribute="top" secondItem="76a-LM-g71" secondAttribute="bottom" constant="31" id="Tq3-Sg-fak"/>
                             <constraint firstItem="pjV-0W-dFD" firstAttribute="centerX" secondItem="Zdo-Vs-QBY" secondAttribute="centerX" id="Uqj-zB-0oe"/>
+                            <constraint firstAttribute="trailing" secondItem="76a-LM-g71" secondAttribute="trailing" constant="31" id="VG1-sy-ojc"/>
                             <constraint firstItem="pjV-0W-dFD" firstAttribute="leading" secondItem="Zdo-Vs-QBY" secondAttribute="leading" id="YOp-SN-Rd9"/>
                             <constraint firstItem="UFN-uP-Lgv" firstAttribute="centerY" secondItem="CIY-iC-B5A" secondAttribute="centerY" id="gcD-0C-CKb"/>
                             <constraint firstItem="UFN-uP-Lgv" firstAttribute="leading" secondItem="Zdo-Vs-QBY" secondAttribute="leading" constant="10" id="nln-jE-gV1"/>
@@ -107,6 +120,7 @@
                     <connections>
                         <outlet property="artworkImage" destination="pjV-0W-dFD" id="ccZ-K3-ywK"/>
                         <outlet property="endTimeLabel" destination="CIY-iC-B5A" id="lbf-UJ-pQu"/>
+                        <outlet property="episodeName" destination="76a-LM-g71" id="x5Y-QY-HeA"/>
                         <outlet property="playButton" destination="9GD-Ad-kUP" id="9e0-kI-ZPc"/>
                         <outlet property="sliderBar" destination="GU7-jt-WS4" id="Qk1-Do-Ugf"/>
                         <outlet property="startTimeLabel" destination="UFN-uP-Lgv" id="BrQ-Uu-wmh"/>

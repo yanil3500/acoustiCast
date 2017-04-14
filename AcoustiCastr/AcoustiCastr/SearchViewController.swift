@@ -89,6 +89,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: DetailPodcastViewController.identifier, sender: nil)
+        //Thanks Robert!
+        self.tableView.deselectRow(at: indexPath, animated: false)
     }
     
     
