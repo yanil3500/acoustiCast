@@ -127,10 +127,9 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         //Dismisses the keyboard from the view once user clicks search bar
         print("Stuff in search bar: \(String(describing: searchBar.text))")
-        if let terms = searchBar.text?.lowercased().components(separatedBy: " ") {
-            print("Inside of let branch: number of search terms: \(terms.count)")
-            iTunes.shared.getSearchText(searchRequest: terms)
-            self.searchTerm = terms
+        if let terms = searchBar.text?.lowercased() {
+            iTunes.shared.getSearchText(searchRequest: [terms])
+            self.searchTerm = [terms]
             print(iTunes.searchTerms)
         }
         self.activityIndicator.startAnimating()
