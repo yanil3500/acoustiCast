@@ -1,5 +1,5 @@
 //
-//  DetailPodcastViewCell.swift
+//  PodcastDetailViewCell.swift
 //  AcoustiCastr
 //
 //  Created by Elyanil Liranzo Castro on 4/13/17.
@@ -8,11 +8,10 @@
 
 import UIKit
 
-class DetailPodcastViewCell: UITableViewCell {
-    
-    var episodelink : String = ""
-    @IBOutlet weak var episodeLink: UIButton!
-    @IBOutlet weak var episodeName: UILabel!
+class PodcastDetailViewCell: UITableViewCell {
+
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var linkButton: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

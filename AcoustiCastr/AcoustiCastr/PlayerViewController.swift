@@ -18,33 +18,16 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var playButton: UIButton!
     
     var player: AVPlayer!
+    var selectedPodcast : Podcast!
     var playerItem: AVPlayerItem?
-    var examplePodcast : Episode?
+    var episode : Episode!
     var podcastEpUrl : String = ""
     var updater : CADisplayLink! = nil
     var timer : Timer?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        iTunes.shared.getSearchText(searchRequest: ["wtf"])
-        iTunes.shared.getPodcasts(completion: { (podcasts) in
-            guard let pod = podcasts?.first else { print("Failure to get podcast"); return }
-            UIImage.fetchImageWith(pod.podcastArtUrl as! String, callback: { (image) in
-                guard let podArt = image else { print("Failed to get image");return }
-                pod.podcastAlbumArt = podArt
-                self.artworkImage.image = podArt
-            })
-            RSS.shared.rssFeed = pod.podcastFeed
-            RSS.shared.getEpisodes(completion: { (episodes) in
-                guard let epOne = episodes?.first else { print("failed"); return }
-                self.examplePodcast = epOne
-                guard let urls = self.examplePodcast?.audiolink else { print("failed again"); return }
-                print("Inside of closure: \(urls)")
-                self.podcastEpUrl = urls
-            })
-        })
-        
-        guard let url = URL(string: "https://traffic.libsyn.com/secure/wtfpod/WTF_-_EPISODE_801_ANNE_HATHAWAY.mp3?dest-id=14434" ) else { print("failed to get episode link") ;return}
+        guard let url = URL(string: episode.audiolink ) else { print("failed to get episode link") ;return}
         let playerItem: AVPlayerItem = AVPlayerItem(url: url)
         player = AVPlayer(playerItem: playerItem)
         
@@ -55,7 +38,8 @@ class PlayerViewController: UIViewController {
         self.sliderBar.isContinuous = true
         self.sliderBar.addTarget(self, action: #selector(PlayerViewController.sliderChanges(_:)), for: .valueChanged)
         
-        
+        self.artworkImage.image = self.selectedPodcast.podcastAlbumArt
+
         secondsToHoursMinutesSeconds(seconds: Int(player.totalDuration()), withLabel: self.endTimeLabel)
         secondsToHoursMinutesSeconds(seconds: 0, withLabel: self.startTimeLabel)
         
