@@ -99,21 +99,16 @@ extension SearchViewController: UISearchBarDelegate {
             searchBar.text = searchText.substring(to: lastIndex)
         }
         
-        if searchText == "" {
-            self.allPodcasts.removeAll()
-            self.tableView.reloadData()
-            
-        }
         
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print("Inside of scrollViewDidScroll")
+        self.searchBar.resignFirstResponder()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         //Dismissed the keyboard from the view once user clicks on cancel button
-        self.searchBar.resignFirstResponder()
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print("Inside scrollViewDidScroll")
         self.searchBar.resignFirstResponder()
     }
     
