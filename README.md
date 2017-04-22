@@ -7,7 +7,7 @@ acoustiCast is a Podcast manager for iOS that offers users a unique experience w
 ### Screenshots
 Search through Podcast:
 
-![Search Podcast]()
+![Search Podcast](AcoustiCastr/AcoustiCastr.readmeAssets/searched.PNG)
 
 Select an episode:
 
