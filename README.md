@@ -6,16 +6,22 @@ acoustiCast is a Podcast manager for iOS that offers users a unique experience w
 
 ### Screenshots
 Search through Podcast:
-![Search Podcast](	AcoustiCastr/AcoustiCastr/readmeAssets/search.PNG)
+
+![Search Podcast](AcoustiCastr/AcoustiCastr/readmeAssets/search.PNG)
 
 Select an episode:
-![Select an episode](	AcoustiCastr/AcoustiCastr/readmeAssets/episode.PNG)
 
-![Player](	AcoustiCastr/AcoustiCastr/readmeAssets/player.PNG)
+![Select an episode]()
+
+The player:
+
+![Player]()
 
 ### Instructions
-To get back to the list of episodes just swipe down the player screen to return.
+To advance the track 15 seconds tap the forward button.  To back up 15 seconds tap the rewind button.  To get back to the list of episodes just swipe down the player screen to return.
 ### Authors
 [Elyanil Castro](https://github.com/yanil3500)
+
 [David Porter](https://github.com/thegrimheep)
+
 [Pavel Parkhomey](https://github.com/pavelpark)
