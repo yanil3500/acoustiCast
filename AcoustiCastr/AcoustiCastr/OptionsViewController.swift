@@ -52,7 +52,24 @@ extension OptionsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Did select:")
+        self.performSegue(withIdentifier: options[indexPath.row].optionSegueIdentifier, sender: nil)
     }
     
+}
+
+
+extension OptionsViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if segue.identifier == MyPodcastsViewController.identifier {
+            let backItem = UIBarButtonItem()
+            backItem.title = " "
+            navigationItem.backBarButtonItem = backItem
+        } else if segue.identifier == DiscoverViewController.identifier {
+            let backItem = UIBarButtonItem()
+            backItem.title = " "
+            navigationItem.backBarButtonItem = backItem
+        }
+    }
 }

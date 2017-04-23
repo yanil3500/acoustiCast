@@ -37,11 +37,29 @@
                     <navigationItem key="navigationItem" title="Options" id="W76-uh-OF4"/>
                     <connections>
                         <outlet property="menuView" destination="ras-qA-OL9" id="ckO-xq-MyJ"/>
+                        <segue destination="U4K-bL-S0l" kind="show" identifier="MyPodcastsViewController" id="uIw-Jj-yx2"/>
+                        <segue destination="7we-EB-VR2" kind="show" identifier="DiscoverViewController" id="5us-Cc-qM7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oKP-7e-LCK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1036" y="144.3778110944528"/>
+        </scene>
+        <!--DiscoverViewController-->
+        <scene sceneID="l8h-kk-3Bd">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DiscoverViewController" referencedIdentifier="DiscoverViewController" id="7we-EB-VR2" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UFn-24-ph5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2210" y="209"/>
+        </scene>
+        <!--MyPodcastsViewController-->
+        <scene sceneID="U2F-95-SWc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MyPodcastsViewController" referencedIdentifier="MyPodcastsViewController" id="U4K-bL-S0l" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rk8-Rl-x5e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2039" y="846"/>
         </scene>
         <!--OptionsViewController-->
         <scene sceneID="3JM-My-RS4">

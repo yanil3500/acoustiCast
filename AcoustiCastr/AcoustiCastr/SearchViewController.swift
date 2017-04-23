@@ -149,7 +149,7 @@ extension SearchViewController {
             //prepares podcast info.
             if let selectedIndex = self.tableView.indexPathForSelectedRow?.row {
                 let selectedPodcast = self.allPodcasts[selectedIndex]
-                guard let destinationController = segue.destination as? DetailPodcastViewController else { print("Failed to prepare segue");return}
+                guard let destinationController = segue.destination as? DetailPodcastViewController else { print("Failed to prepare segue."); return}
                 let backItem = UIBarButtonItem()
                 backItem.title = " "
                 
