@@ -73,6 +73,15 @@ extension UIImage {
             }
         }
     }
+    
+    class func fetchImageFromFile(_ filePath: String)->UIImage?{
+        if FileManager().fileExists(atPath: filePath){
+            let url = URL(fileURLWithPath: filePath)
+            guard let data = try? Data(contentsOf: url) else { print("Failed to load image from file."); return nil }
+            return UIImage(data: data)
+        }
+        return nil
+    }
 }
 
 
