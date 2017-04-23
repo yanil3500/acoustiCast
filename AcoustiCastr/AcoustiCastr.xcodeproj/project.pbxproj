@@ -15,6 +15,7 @@
 		A166622B1E9F119A00DCA924 /* DetailPodcastViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A16662291E9F119A00DCA924 /* DetailPodcastViewController.storyboard */; };
 		A166622D1E9F11B900DCA924 /* PlayerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A166622C1E9F11B900DCA924 /* PlayerViewController.storyboard */; };
 		A1B79A331E9C355500F4B462 /* RSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B79A321E9C355500F4B462 /* RSS.swift */; };
+
 		CD01444F1EAD37E700186D60 /* DiscoverViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD01444E1EAD37E700186D60 /* DiscoverViewController.storyboard */; };
 		CD0144511EAD39AC00186D60 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0144501EAD39AC00186D60 /* DiscoverViewController.swift */; };
 		CD0144531EAD3A6300186D60 /* OptionsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD0144521EAD3A6300186D60 /* OptionsViewController.storyboard */; };
@@ -22,6 +23,7 @@
 		CD01445A1EAD3DD800186D60 /* OptionsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0144581EAD3DD800186D60 /* OptionsViewCell.swift */; };
 		CD01445B1EAD3DD800186D60 /* OptionsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD0144591EAD3DD800186D60 /* OptionsViewCell.xib */; };
 		CD01445D1EAD3F9600186D60 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD01445C1EAD3F9600186D60 /* Options.swift */; };
+
 		CD076CF21E9BF21F00686520 /* Podcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD076CF11E9BF21F00686520 /* Podcast.swift */; };
 		CD076CF41E9BF22F00686520 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD076CF31E9BF22F00686520 /* Episode.swift */; };
 		CD076CF71E9BF2E200686520 /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD076CF61E9BF2E200686520 /* UIKitExtensions.swift */; };
