@@ -37,20 +37,11 @@
                     <navigationItem key="navigationItem" title="Options" id="W76-uh-OF4"/>
                     <connections>
                         <outlet property="menuView" destination="ras-qA-OL9" id="ckO-xq-MyJ"/>
-                        <segue destination="xrT-e0-40b" kind="show" id="hMt-ia-84z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oKP-7e-LCK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1036" y="144.3778110944528"/>
-        </scene>
-        <!--DiscoverViewController-->
-        <scene sceneID="o1d-iw-B2Q">
-            <objects>
-                <viewControllerPlaceholder storyboardName="DiscoverViewController" id="xrT-e0-40b" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bx8-Ap-FGW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2053" y="-6"/>
         </scene>
         <!--OptionsViewController-->
         <scene sceneID="3JM-My-RS4">
