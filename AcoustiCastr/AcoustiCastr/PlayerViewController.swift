@@ -103,7 +103,6 @@ class PlayerViewController: UIViewController {
         secondsToHoursMinutesSeconds(seconds: Int(player.currentPlayTime()), withLabel: self.startTimeLabel)
     }
     
-    
     @IBAction func rewind(_ sender: Any) {
         // back 15 secs
         let sec = Float64(sliderBar.value * Float(player.totalDuration())) - 15
