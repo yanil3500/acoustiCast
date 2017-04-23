@@ -12,7 +12,8 @@ class DiscoverViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        print("Inside of DiscoverViewController")
         // Do any additional setup after loading the view.
     }
 

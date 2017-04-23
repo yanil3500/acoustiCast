@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--DiscoverViewController-->
+        <!--Discover-->
         <scene sceneID="12B-NV-e9y">
             <objects>
-                <viewController title="DiscoverViewController" id="6nb-Te-vLj" customClass="DiscoverViewController" customModule="AcoustiCastr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiscoverViewController" title="Discover" id="6nb-Te-vLj" customClass="DiscoverViewController" customModule="AcoustiCastr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0qd-gE-fxW"/>
                         <viewControllerLayoutGuide type="bottom" id="hOg-Rq-maS"/>
