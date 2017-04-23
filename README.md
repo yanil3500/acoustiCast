@@ -19,12 +19,6 @@ Search through podcast | Select an episode | The player
 ![Search podcast](AcoustiCastr/AcoustiCastr/readmeAssets/searched.PNG) |  ![Select an episode](AcoustiCastr/AcoustiCastr/readmeAssets/episodes.PNG)  | ![Player](AcoustiCastr/AcoustiCastr/readmeAssets/play.PNG)
 
 
-Select an episode:
-
-
-The player:
-
-
 
 ### Instructions
 To advance the track 15 seconds tap the forward button.  To back up 15 seconds tap the rewind button.  To get back to the list of episodes just swipe down the player screen to return.
