@@ -38,7 +38,6 @@
                     <connections>
                         <outlet property="menuView" destination="ras-qA-OL9" id="ckO-xq-MyJ"/>
                         <segue destination="xrT-e0-40b" kind="show" id="hMt-ia-84z"/>
-                        <segue destination="due-18-feV" kind="show" id="KeB-ZF-57F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oKP-7e-LCK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -52,14 +51,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bx8-Ap-FGW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2053" y="-6"/>
-        </scene>
-        <!--MyPodcastsViewController-->
-        <scene sceneID="XmC-jd-bOc">
-            <objects>
-                <viewControllerPlaceholder storyboardName="MyPodcastsViewController" id="due-18-feV" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wKJ-6a-vic" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2115" y="399"/>
         </scene>
         <!--OptionsViewController-->
         <scene sceneID="3JM-My-RS4">
