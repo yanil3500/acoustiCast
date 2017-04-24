@@ -5,7 +5,7 @@ A podcast manager and player app for iOS.
 acoustiCast is a podcast manager for iOS that offers users a unique experience when listening to podcasts.  Users can search and subscribe to any podcast, sync subscriptions, sync playback and sync episodes (all coming soon).
 
 ### User Stories
-* As a user I want to be able to search for podcasts
+* As a user I want to be able to search for podcasts.
 * As a I would like to be able to discover new podcasts.
 * As a user I would like to have one convenient place where I can listen to all my podcasts.
 * As a developer I want to provide a smooth, intuitive user experience.
@@ -14,7 +14,7 @@ acoustiCast is a podcast manager for iOS that offers users a unique experience w
 
 
 ### Screenshots
-Search through podcast | Select an episode | The player
+Search through podcasts | Select an episode | The player
 :----------------------------:|:----------------------------: | :------:
 ![Search podcast](AcoustiCastr/AcoustiCastr/readmeAssets/searched.PNG) |  ![Select an episode](AcoustiCastr/AcoustiCastr/readmeAssets/episodes.PNG)  | ![Player](AcoustiCastr/AcoustiCastr/readmeAssets/play.PNG)
 
