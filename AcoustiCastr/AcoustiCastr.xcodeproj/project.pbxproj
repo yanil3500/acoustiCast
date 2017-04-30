@@ -30,6 +30,7 @@
 		CD076CF91E9BF4D400686520 /* iTunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD076CF81E9BF4D400686520 /* iTunes.swift */; };
 		CD47ECD51EA0629F0038DF12 /* PodcastDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD47ECD31EA0629F0038DF12 /* PodcastDetailViewCell.swift */; };
 		CD47ECD61EA0629F0038DF12 /* PodcastDetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD47ECD41EA0629F0038DF12 /* PodcastDetailViewCell.xib */; };
+		CD9B5C041EB6515300ABD1E8 /* TopPodcasts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9B5C031EB6515300ABD1E8 /* TopPodcasts.swift */; };
 		CDC7E7561E9E8D1F00DDE6AF /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC7E7551E9E8D1F00DDE6AF /* FoundationExtensions.swift */; };
 		CDC7E7581E9E8FDC00DDE6AF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC7E7571E9E8FDC00DDE6AF /* SearchViewController.swift */; };
 		CDD2A3FF1E9BEF3D00D1A3EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD2A3FE1E9BEF3D00D1A3EA /* AppDelegate.swift */; };
@@ -64,6 +65,7 @@
 		CD076CF81E9BF4D400686520 /* iTunes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iTunes.swift; sourceTree = "<group>"; };
 		CD47ECD31EA0629F0038DF12 /* PodcastDetailViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodcastDetailViewCell.swift; sourceTree = "<group>"; };
 		CD47ECD41EA0629F0038DF12 /* PodcastDetailViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PodcastDetailViewCell.xib; sourceTree = "<group>"; };
+		CD9B5C031EB6515300ABD1E8 /* TopPodcasts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TopPodcasts.swift; path = ../TopPodcasts.swift; sourceTree = "<group>"; };
 		CDC7E7551E9E8D1F00DDE6AF /* FoundationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
 		CDC7E7571E9E8FDC00DDE6AF /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		CDD2A3FB1E9BEF3C00D1A3EA /* AcoustiCastr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AcoustiCastr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				A1B79A321E9C355500F4B462 /* RSS.swift */,
+				CD9B5C031EB6515300ABD1E8 /* TopPodcasts.swift */,
 				CD076CF11E9BF21F00686520 /* Podcast.swift */,
 				CD076CF31E9BF22F00686520 /* Episode.swift */,
 				CD076CF81E9BF4D400686520 /* iTunes.swift */,
@@ -265,6 +268,7 @@
 				A1B79A331E9C355500F4B462 /* RSS.swift in Sources */,
 				CDF186EC1E9FFFFF0071C8DE /* SearchResultsCell.swift in Sources */,
 				CD47ECD51EA0629F0038DF12 /* PodcastDetailViewCell.swift in Sources */,
+				CD9B5C041EB6515300ABD1E8 /* TopPodcasts.swift in Sources */,
 				A16662261E9F0CB800DCA924 /* PlayerViewController.swift in Sources */,
 				CD0144551EAD3AA200186D60 /* OptionsViewController.swift in Sources */,
 				CDD2A3FF1E9BEF3D00D1A3EA /* AppDelegate.swift in Sources */,

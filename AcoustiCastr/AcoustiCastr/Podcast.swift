@@ -12,9 +12,10 @@ class Podcast {
     var artistName : String
     var collectionName : String
     var genre : String
-    var podcastFeed : String
+    var podcastFeed : String?
     var podcastArtUrl : String
     var podcastAlbumArt : UIImage?
+    var podcastSummary : String?
     
     init(json: [String: Any] ) {
             self.artistName = json["artistName"] as! String
@@ -24,7 +25,8 @@ class Podcast {
             self.collectionName = ""
         }
         self.genre = json["primaryGenreName"] as! String
-        self.podcastFeed = json["feedUrl"] as! String
+        self.podcastFeed = json["feedUrl"] as? String
         self.podcastArtUrl = json["artworkUrl600"] as! String
+        self.podcastSummary = json["summary"] as! String
     }
 }

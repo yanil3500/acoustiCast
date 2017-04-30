@@ -24,7 +24,9 @@ class Episode {
         if let link = episode["audiolink"] {
             self.audiolink = link
         }
-        self.pubDate = episode["pubDate"]!
+        if let date = episode["pubDate"] as? String {
+            self.pubDate = date
+        }
         
         // If duration is nil, then dont generate the episode, just return nil
         if let duration = episode["duration"] {

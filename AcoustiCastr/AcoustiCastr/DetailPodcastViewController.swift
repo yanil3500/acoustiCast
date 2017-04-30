@@ -43,7 +43,7 @@ class DetailPodcastViewController: UIViewController {
         self.episodeView.rowHeight = UITableViewAutomaticDimension
         
         //hands rss feed from selected podcast to our RSS singleton
-        RSS.shared.rssFeed = selectedPod.podcastFeed
+        RSS.shared.rssFeed = selectedPod.podcastFeed!
         RSS.shared.getEpisodes(completion: { (episodes) in
             guard let podcastEps = episodes else { print("failed to get episodes."); return }
             self.episodes = podcastEps

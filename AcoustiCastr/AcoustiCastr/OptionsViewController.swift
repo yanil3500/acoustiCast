@@ -67,6 +67,7 @@ extension OptionsViewController {
             backItem.title = " "
             navigationItem.backBarButtonItem = backItem
         } else if segue.identifier == DiscoverViewController.identifier {
+            TopPodcasts.shared.getTopEpisodes()
             let backItem = UIBarButtonItem()
             backItem.title = " "
             navigationItem.backBarButtonItem = backItem
