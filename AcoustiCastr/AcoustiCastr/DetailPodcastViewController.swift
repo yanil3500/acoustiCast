@@ -14,6 +14,8 @@ class DetailPodcastViewController: UIViewController {
     @IBOutlet weak var episodeView: UITableView!
     @IBOutlet weak var podcastTitle: UINavigationItem!
     
+    //try to create an outlet from the View that holds the artwork to have that piece be scrollable and scalable.
+    
     var selectedPod: Podcast!
     
     var podcastDescription: String? {
@@ -66,7 +68,7 @@ class DetailPodcastViewController: UIViewController {
     podcastArt.layer.transform = artworkTransform
     }
     else {
-    artworkTransform = CATransform3DTranslate(artworkTransform, 0, 0, 0)
+    artworkTransform = CATransform3DTranslate(artworkTransform, 0, 0, 100)
         
         }
         podcastArt.layer.transform = artworkTransform
