@@ -50,6 +50,27 @@ class DetailPodcastViewController: UIViewController {
             self.episodeView.reloadData()
         })
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.y
+        var artworkTransform = CATransform3DIdentity
+        
+    //when the user pulls down
+    if offset < 0 {
+    
+    let artworkScaleFactor:CGFloat = -(offset) / podcastArt.bounds.height
+    let artworkSizevariation = ((podcastArt.bounds.height * (1.0 + artworkScaleFactor)) - podcastArt.bounds.height)/2.0
+    artworkTransform = CATransform3DTranslate(artworkTransform, 0, artworkSizevariation, 0)
+    artworkTransform = CATransform3DScale(artworkTransform, 1.0 + artworkScaleFactor, 1.0 + artworkScaleFactor, 0)
+    
+    podcastArt.layer.transform = artworkTransform
+    }
+    else {
+    artworkTransform = CATransform3DTranslate(artworkTransform, 0, 0, 0)
+        
+        }
+        podcastArt.layer.transform = artworkTransform
+    }
 
 }
 

@@ -21,13 +21,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Asn-3t-qwH">
-                                <rect key="frame" x="0.0" y="10" width="375" height="647"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Asn-3t-qwH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S4s-pz-ddY">
-                                        <rect key="frame" x="0.0" y="-11" width="375" height="280"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S4s-pz-ddY">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nTI-G9-myA">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nTI-G9-myA">
                                                 <rect key="frame" x="62" y="15" width="250" height="250"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="250" id="9IQ-PE-dPE"/>
@@ -39,11 +39,16 @@
                                         <constraints>
                                             <constraint firstItem="nTI-G9-myA" firstAttribute="centerX" secondItem="S4s-pz-ddY" secondAttribute="centerX" id="DHh-lo-B9W"/>
                                             <constraint firstItem="nTI-G9-myA" firstAttribute="centerY" secondItem="S4s-pz-ddY" secondAttribute="centerY" id="H1P-4a-fZt"/>
+                                            <constraint firstItem="nTI-G9-myA" firstAttribute="top" secondItem="S4s-pz-ddY" secondAttribute="top" constant="15" id="vkA-jb-Egb"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="1000" id="MWU-NX-z1d"/>
+                                    <constraint firstAttribute="trailing" secondItem="S4s-pz-ddY" secondAttribute="trailing" id="3PA-52-ZxW"/>
+                                    <constraint firstItem="S4s-pz-ddY" firstAttribute="top" secondItem="Asn-3t-qwH" secondAttribute="top" id="CTZ-Gm-V1E"/>
+                                    <constraint firstAttribute="bottom" secondItem="S4s-pz-ddY" secondAttribute="bottom" constant="314" id="EkW-Xb-fpc"/>
+                                    <constraint firstItem="S4s-pz-ddY" firstAttribute="centerX" secondItem="Asn-3t-qwH" secondAttribute="centerX" id="Lcb-27-0t4"/>
+                                    <constraint firstItem="S4s-pz-ddY" firstAttribute="leading" secondItem="Asn-3t-qwH" secondAttribute="leading" id="pI8-wU-m5q"/>
                                 </constraints>
                             </scrollView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="imV-ff-X6W">
@@ -54,6 +59,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Asn-3t-qwH" firstAttribute="height" secondItem="YMx-JR-dzM" secondAttribute="height" id="2v7-pS-cNZ"/>
                             <constraint firstItem="imV-ff-X6W" firstAttribute="trailing" secondItem="Asn-3t-qwH" secondAttribute="trailing" id="KEn-5D-omc"/>
                             <constraint firstItem="imV-ff-X6W" firstAttribute="top" secondItem="8kp-y0-zrZ" secondAttribute="bottom" constant="287" id="Mvj-13-HfE"/>
                             <constraint firstItem="JyU-u5-oOt" firstAttribute="top" secondItem="imV-ff-X6W" secondAttribute="bottom" id="Z1c-Ec-SYl"/>
