@@ -6,7 +6,7 @@ acoustiCast is a podcast manager for iOS that offers users a unique experience w
 
 ### User Stories
 * As a user I want to be able to search for podcasts.
-* As a I would like to be able to discover new podcasts.
+* As a user I would like to be able to discover new podcasts.
 * As a user I would like to have one convenient place where I can listen to all my podcasts.
 * As a developer I want to provide a smooth, intuitive user experience.
 * As a developer I want to provide a clean and concise UI.
